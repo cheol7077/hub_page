@@ -16,11 +16,11 @@
 							<div class="asker-meta">
 								<span class="qa-message-what"></span> <span
 									class="qa-message-when"> <span
-									class="qa-message-when-data">${board.date_posted }</span>
+									class="qa-message-when-data">${board.date }</span>
 								</span> <span class="qa-message-who"> <span
 									class="qa-message-who-pad">by </span> <span
 									class="qa-message-who-data"><a
-										href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko">${board.id }</a></span>
+										href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko">${board.hits }</a></span>
 								</span>
 							</div>
 						</div>

@@ -20,9 +20,8 @@ public class BoardController {
 	@RequestMapping("/board.do")
 	public String board(@RequestParam("index") int index, @RequestParam("order") String order,
 			HttpServletRequest request) {
-		List<BoardVO> list = boardService.getBoardList(index, "id");
+		List<BoardVO> list = boardService.getBoardList(index, order);
 		request.setAttribute("list", list);
-		
 		if (index == 0)
 			return "board";
 		else

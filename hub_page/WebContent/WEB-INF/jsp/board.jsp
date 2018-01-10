@@ -50,6 +50,18 @@
 				})
 			}
 		})
+		
+		document.getElementById('hits').onclick=function() {
+			location.href="board.do?index=0&order=hits"
+		}
+		
+		document.getElementById('replyCnt').onclick=function() {
+			location.href="board.do?index=0&order=replyCnt"
+		}
+		
+		document.getElementById('date').onclick=function() {
+			location.href="board.do?index=0&order=date"
+		}
 	});
 </script>
 <style>
@@ -184,6 +196,19 @@ img {
 <title>Insert title here</title>
 </head>
 <body>
+	<input type="button" value="에펨코리아" />
+	<input type="button" value="뽐뿌" />
+	<input type="button" value="클리앙" /> <br/>
+
+	<input id="hits" type="button" value="조회수" />
+	<input id="replyCnt" type="button" value="추천수" />
+	<input id="date" type="button" value="최신" />
+	<br />
+	<input type="button" value="3시간" />
+	<input type="button" value="6시간" />
+	<input type="button" value="12시간" />
+	<input type="button" value="24시간" />
+
 	<c:forEach var="board" items="${requestScope.list }">
 		<div class="qa-message-list" id="wallmessages">
 			<div class="message-item" id="m16">
@@ -199,11 +224,11 @@ img {
 								<div class="asker-meta">
 									<span class="qa-message-what"></span> <span
 										class="qa-message-when"> <span
-										class="qa-message-when-data">${board.date_posted }</span>
+										class="qa-message-when-data">${board.date }</span>
 									</span> <span class="qa-message-who"> <span
 										class="qa-message-who-pad">by </span> <span
 										class="qa-message-who-data"><a
-											href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko">${board.id }</a></span>
+											href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko">${board.hits }</a></span>
 									</span>
 								</div>
 							</div>

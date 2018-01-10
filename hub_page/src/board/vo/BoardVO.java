@@ -4,8 +4,10 @@ public class BoardVO {
 	private int id;
 	private String title;
 	private String content;
-	private String date_posted;
-	private String link;
+	private String date;
+	private String url;
+	private int hits;
+	private int replyCnt;
 	
 	public int getId() {
 		return id;
@@ -25,16 +27,29 @@ public class BoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getDate_posted() {
-		return date_posted;
+	public String getDate() {
+		return date;
 	}
-	public void setDate_posted(String date_posted) {
-		this.date_posted = date_posted;
+	public void setDate(String date) {
+		this.date = date;
 	}
-	public String getLink() {
-		return link;
+	public String getUrl() {
+		return url;
 	}
-	public void setLink(String link) {
-		this.link = link;
+	public void setUrl(String url) {
+		this.url = url;
 	}
+	public int getHits() {
+		return hits;
+	}
+	public void setHits(int hits) {
+		this.hits = hits;
+	}
+	public int getReplyCnt() {
+		return replyCnt;
+	}
+	public void setReplyCnt(int replyCnt) {
+		this.replyCnt = replyCnt;
+	}
+	
 }
