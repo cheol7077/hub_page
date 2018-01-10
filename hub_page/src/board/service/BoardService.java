@@ -14,8 +14,8 @@ public class BoardService {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public List<BoardVO> getBoardList(int index, String order) {
+	public List<BoardVO> getBoardList(int index, String order, int time) {
 		BoardDAO boardDao = sqlSessionTemplate.getMapper(BoardDAO.class);
-		return boardDao.getBoardList(index, order);
+		return boardDao.getBoardList(index, order, time);
 	}
 }

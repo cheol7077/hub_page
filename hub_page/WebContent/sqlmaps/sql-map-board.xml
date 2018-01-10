@@ -6,6 +6,7 @@
 	<select id="getBoardList" parameterType="map" resultType="board.vo.BoardVO">
 		select *
 		from commu
+		where date >= date_add(now(), interval-${time} HOUR)
 		order by ${order} desc
 		limit #{index}, 10
 	</select>

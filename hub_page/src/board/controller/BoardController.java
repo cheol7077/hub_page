@@ -1,6 +1,11 @@
 package board.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,10 +23,12 @@ public class BoardController {
 	BoardService boardService;
 
 	@RequestMapping("/board.do")
-	public String board(@RequestParam("index") int index, @RequestParam("order") String order,
+	public String board(@RequestParam("index") int index, @RequestParam("order") String order, @RequestParam("time") int time,
 			HttpServletRequest request) {
-		List<BoardVO> list = boardService.getBoardList(index, order);
+	    
+		List<BoardVO> list = boardService.getBoardList(index, order, time);
 		request.setAttribute("list", list);
+	    
 		if (index == 0)
 			return "board";
 		else

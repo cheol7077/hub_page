@@ -10,6 +10,7 @@
 <script>
 	var index = 0;
 	var order = "";
+	var time = "";
 
 	function Request() {
 		var requestParam = "";
@@ -33,6 +34,7 @@
 	$(function() {
 		var request = new Request();
 		order = request.getParameter("order");
+		time = request.getParameter("time");
 		$(window).scroll(function() {
 			var sh = $(window).scrollTop() + $(window).height();
 			var dh = $(document).height();
@@ -42,7 +44,8 @@
 					url : 'board.do',
 					data : {
 						index : index,
-						order : order
+						order : order,
+						time : time
 					},
 					success : function(data) {
 						$('body').append(data);
@@ -52,15 +55,16 @@
 		})
 		
 		document.getElementById('hits').onclick=function() {
-			location.href="board.do?index=0&order=hits"
+			alert("board.do?index=0&order=hits?time="+time)
+			location.href="board.do?index=0&order=hits&time="+time
 		}
 		
 		document.getElementById('replyCnt').onclick=function() {
-			location.href="board.do?index=0&order=replyCnt"
+			location.href="board.do?index=0&order=replyCnt&time="+time
 		}
 		
 		document.getElementById('date').onclick=function() {
-			location.href="board.do?index=0&order=date"
+			location.href="board.do?index=0&order=date&time="+time
 		}
 	});
 </script>
