@@ -53,37 +53,37 @@
 				})
 			}
 		})
-		
-		document.getElementById('hits').onclick=function() {
-			location.href="board.do?index=0&order=hits&time="+time
+
+		document.getElementById('hits').onclick = function() {
+			location.href = "board.do?index=0&order=hits&time=" + time
 		}
-		
-		document.getElementById('replyCnt').onclick=function() {
-			location.href="board.do?index=0&order=commentCnt&time="+time
+
+		document.getElementById('replyCnt').onclick = function() {
+			location.href = "board.do?index=0&order=commentCnt&time=" + time
 		}
-		
-		document.getElementById('date').onclick=function() {
-			location.href="board.do?index=0&order=date&time="+time
+
+		document.getElementById('date').onclick = function() {
+			location.href = "board.do?index=0&order=date&time=" + time
 		}
-		
-		document.getElementById('3hours').onclick=function() {
-			time=3
-			location.href="board.do?index=0&order=date&time="+time
+
+		document.getElementById('3hours').onclick = function() {
+			time = 3
+			location.href = "board.do?index=0&order=date&time=" + time
 		}
-		
-		document.getElementById('6hours').onclick=function() {
-			time=6
-			location.href="board.do?index=0&order=date&time="+time
+
+		document.getElementById('6hours').onclick = function() {
+			time = 6
+			location.href = "board.do?index=0&order=date&time=" + time
 		}
-		
-		document.getElementById('12hours').onclick=function() {
-			time=12
-			location.href="board.do?index=0&order=date&time="+time
+
+		document.getElementById('12hours').onclick = function() {
+			time = 12
+			location.href = "board.do?index=0&order=date&time=" + time
 		}
-		
-		document.getElementById('24hours').onclick=function() {
-			time=24
-			location.href="board.do?index=0&order=date&time="+time
+
+		document.getElementById('24hours').onclick = function() {
+			time = 24
+			location.href = "board.do?index=0&order=date&time=" + time
 		}
 	});
 </script>
@@ -221,17 +221,20 @@ img {
 <body>
 	<input type="button" value="에펨코리아" />
 	<input type="button" value="뽐뿌" />
-	<input type="button" value="클리앙" /> <br/>
+	<input type="button" value="클리앙" />
+	<br />
 
-	<input id="hits" type="button" value="조회수" />
-	<input id="replyCnt" type="button" value="추천수" />
-	<input id="date" type="button" value="최신" />
+	<a href='board.do?index=0&order=hits&time=${param.time }'>조회수</a>
+	<a href='board.do?index=0&order=commentCnt&time=${param.time }'>추천수</a>
+	<a href='board.do?index=0&order=date&time=${param.time }'>최신</a>
 	<br />
 	<input id="3hours" type="button" value="3시간" />
 	<input id="6hours" type="button" value="6시간" />
 	<input id="12hours" type="button" value="12시간" />
 	<input id="24hours" type="button" value="24시간" />
 
+	<button id="signup">회원가입</button>
+	
 	<c:forEach var="board" items="${requestScope.list }">
 		<div class="qa-message-list" id="wallmessages">
 			<div class="message-item" id="m16">
