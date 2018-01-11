@@ -65,6 +65,26 @@
 		document.getElementById('date').onclick=function() {
 			location.href="board.do?index=0&order=date&time="+time
 		}
+		
+		document.getElementById('3hours').onclick=function() {
+			time=3
+			location.href="board.do?index=0&order=date&time="+time
+		}
+		
+		document.getElementById('6hours').onclick=function() {
+			time=6
+			location.href="board.do?index=0&order=date&time="+time
+		}
+		
+		document.getElementById('12hours').onclick=function() {
+			time=12
+			location.href="board.do?index=0&order=date&time="+time
+		}
+		
+		document.getElementById('24hours').onclick=function() {
+			time=24
+			location.href="board.do?index=0&order=date&time="+time
+		}
 	});
 </script>
 <style>
@@ -207,10 +227,10 @@ img {
 	<input id="replyCnt" type="button" value="추천수" />
 	<input id="date" type="button" value="최신" />
 	<br />
-	<input type="button" value="3시간" />
-	<input type="button" value="6시간" />
-	<input type="button" value="12시간" />
-	<input type="button" value="24시간" />
+	<input id="3hours" type="button" value="3시간" />
+	<input id="6hours" type="button" value="6시간" />
+	<input id="12hours" type="button" value="12시간" />
+	<input id="24hours" type="button" value="24시간" />
 
 	<c:forEach var="board" items="${requestScope.list }">
 		<div class="qa-message-list" id="wallmessages">
