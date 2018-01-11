@@ -59,7 +59,7 @@
 		}
 		
 		document.getElementById('replyCnt').onclick=function() {
-			location.href="board.do?index=0&order=replyCnt&time="+time
+			location.href="board.do?index=0&order=commentCnt&time="+time
 		}
 		
 		document.getElementById('date').onclick=function() {
