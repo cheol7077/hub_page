@@ -85,6 +85,10 @@
 			time=24
 			location.href="board.do?index=0&order=date&time="+time
 		}
+		
+		document.getElementById('signup').onclick=function() {
+			location.href="signup.do"
+		}
 	});
 </script>
 <style>
@@ -231,6 +235,8 @@ img {
 	<input id="6hours" type="button" value="6시간" />
 	<input id="12hours" type="button" value="12시간" />
 	<input id="24hours" type="button" value="24시간" />
+	
+	<input id="signup" type="button" value="회원가입" />
 
 	<c:forEach var="board" items="${requestScope.list }">
 		<div class="qa-message-list" id="wallmessages">
