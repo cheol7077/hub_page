@@ -1,12 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page import="java.util.List, board.vo.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%><%-- 
+<%@ page import="board.vo.BoardVO" %> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="js/jquery-3.2.1.js"></script>
+<link href="css/timeline.css" rel="stylesheet" />
+<link href="css/view.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script>
 	var index = 0;
 	var order = "";
@@ -68,166 +72,44 @@
 		}
 	});
 </script>
-<style>
-@CHARSET "UTF-8";
 
-.message-item {
-	margin-bottom: 25px;
-	margin-left: 40px;
-	position: relative;
-}
-
-.message-item .message-inner {
-	background: #fff;
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 10px;
-	position: relative;
-}
-
-.message-item .message-inner:before {
-	border-right: 10px solid #ddd;
-	border-style: solid;
-	border-width: 10px;
-	color: rgba(0, 0, 0, 0);
-	content: "";
-	display: block;
-	height: 0;
-	position: absolute;
-	left: -20px;
-	top: 6px;
-	width: 0;
-}
-
-.message-item .message-inner:after {
-	border-right: 10px solid #fff;
-	border-style: solid;
-	border-width: 10px;
-	color: rgba(0, 0, 0, 0);
-	content: "";
-	display: block;
-	height: 0;
-	position: absolute;
-	left: -18px;
-	top: 6px;
-	width: 0;
-}
-
-.message-item:before {
-	background: #fff;
-	border-radius: 2px;
-	bottom: -30px;
-	box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-	content: "";
-	height: 100%;
-	left: -30px;
-	position: absolute;
-	width: 3px;
-}
-
-.message-item:after {
-	background: #fff;
-	border: 2px solid #ccc;
-	border-radius: 50%;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-	content: "";
-	height: 15px;
-	left: -36px;
-	position: absolute;
-	top: 10px;
-	width: 15px;
-}
-
-.clearfix:before, .clearfix:after {
-	content: " ";
-	display: table;
-}
-
-.message-item .message-head {
-	border-bottom: 1px solid #eee;
-	margin-bottom: 8px;
-	padding-bottom: 8px;
-}
-
-.message-item .message-head .avatar {
-	margin-right: 20px;
-}
-
-.message-item .message-head .user-detail {
-	overflow: hidden;
-}
-
-.message-item .message-head .user-detail h5 {
-	font-size: 16px;
-	font-weight: bold;
-	margin: 0;
-}
-
-.message-item .message-head .post-meta {
-	float: left;
-	padding: 0 15px 0 0;
-}
-
-.message-item .message-head .post-meta>div {
-	color: #333;
-	font-weight: bold;
-	text-align: right;
-}
-
-.post-meta>div {
-	color: #777;
-	font-size: 12px;
-	line-height: 22px;
-}
-
-.message-item .message-head .post-meta>div {
-	color: #333;
-	font-weight: bold;
-	text-align: right;
-}
-
-.post-meta>div {
-	color: #777;
-	font-size: 12px;
-	line-height: 22px;
-}
-
-img {
-	min-height: 40px;
-	max-height: 40px;
-}
-</style>
 <title>Insert title here</title>
 </head>
 <body>
-	<input type="button" value="에펨코리아" />
-	<input type="button" value="뽐뿌" />
-	<input type="button" value="클리앙" /> <br/>
 
-	<input id="hits" type="button" value="조회수" />
-	<input id="replyCnt" type="button" value="추천수" />
-	<input id="date" type="button" value="최신" />
+
+	<jsp:include page="/WEB-INF/include/header.jsp"></jsp:include>
+	 <div></br>
+ </br></div>
+	<input type="button" class="button1" value="에펨코리아" />
+	<input type="button" class="button1"value="뽐뿌" />
+	<input type="button" class="button1"value="클리앙" /> <br/>
+
+	<input id="hits" class="button1" type="button" value="조회수" />
+	<input id="replyCnt" class="button1" type="button" value="추천수" />
+	<input id="date" class="button1" type="button" value="최신" />
 	<br />
-	<input type="button" value="3시간" />
-	<input type="button" value="6시간" />
-	<input type="button" value="12시간" />
-	<input type="button" value="24시간" />
-
+	<input type="button" class="button1" value="3시간" />
+	<input type="button" class="button1" value="6시간" />
+	<input type="button" class="button1" value="12시간" />
+	<input type="button" class="button1" value="24시간" />
+ <div></br>
+ </br></div>
 	<c:forEach var="board" items="${requestScope.list }">
 		<div class="qa-message-list" id="wallmessages">
 			<div class="message-item" id="m16">
 				<div class="message-inner">
 					<div class="message-head clearfix">
 						<div class="avatar pull-left">
-							<a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img
-								src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a>
+							<a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><i class="glyphicon glyphicon-list"
+							style="font-size:36px;color:#FFD6A4;"></i></a>
 						</div>
 						<div class="user-detail">
 							<h5 class="handle">${board.title }</h5>
 							<div class="post-meta">
 								<div class="asker-meta">
 									<span class="qa-message-what"></span> <span
-										class="qa-message-when"> <span
+										class="qa-message-when"><i class="glyphicon glyphicon-time"></i><span
 										class="qa-message-when-data">${board.date }</span>
 									</span> <span class="qa-message-who"> <span
 										class="qa-message-who-pad">by </span> <span
