@@ -85,6 +85,10 @@
 			time = 24
 			location.href = "board.do?index=0&order=date&time=" + time
 		}
+		
+		document.getElementById('signup').onclick = function() {
+			location.href = "signup.do" + time
+		}
 	});
 </script>
 <style>
