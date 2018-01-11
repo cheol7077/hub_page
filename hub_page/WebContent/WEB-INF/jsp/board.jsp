@@ -59,7 +59,6 @@
 		})
 		
 		document.getElementById('hits').onclick=function() {
-			alert("board.do?index=0&order=hits?time="+time)
 			location.href="board.do?index=0&order=hits&time="+time
 		}
 		
