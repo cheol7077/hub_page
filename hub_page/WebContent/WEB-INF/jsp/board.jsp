@@ -114,7 +114,7 @@
 	<input id="replyCnt" class="button1" type="button" value="추천수" />
 	<input id="date" class="button1" type="button" value="최신" />
 	<br />
-	<input id="signup" type="button" value="회원가입" />
+
 	<input id="3hours" type="button" class="button1" value="3시간" />
 	<input id="6hours" type="button" class="button1" value="6시간" />
 	<input id="12hours" type="button" class="button1" value="12시간" />
