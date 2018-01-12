@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import board.dao.BoardDAO;
 import board.vo.BoardVO;
+import board.vo.MemberVO;
 
 @Service
 public class BoardService {
@@ -17,5 +18,10 @@ public class BoardService {
 	public List<BoardVO> getBoardList(int index, String order, int time) {
 		BoardDAO boardDao = sqlSessionTemplate.getMapper(BoardDAO.class);
 		return boardDao.getBoardList(index, order, time);
+	}
+	
+	public int insertMember(MemberVO mv) {
+		BoardDAO boardDao = sqlSessionTemplate.getMapper(BoardDAO.class);
+		return boardDao.insertMember(mv);
 	}
 }
