@@ -14,6 +14,8 @@ import board.vo.BoardVO;
 
 @Controller
 public class BoardController {
+	final int INIT = 0;
+	
 	@Autowired
 	BoardService boardService;
 
@@ -24,7 +26,7 @@ public class BoardController {
 		List<BoardVO> list = boardService.getBoardList(index, order, time);
 		request.setAttribute("list", list);
 	    
-		if (index == 0)
+		if (index == INIT)
 			return "board";
 		else
 			return "boardAdd";

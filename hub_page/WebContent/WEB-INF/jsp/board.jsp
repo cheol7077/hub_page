@@ -59,7 +59,6 @@
 				})
 			}
 		})
-
 		document.getElementById('hits').onclick = function() {
 			location.href = "board.do?index=0&order=hits&time=" + time
 		}
@@ -98,11 +97,9 @@
 	});
 </script>
 
-<title>Insert title here</title>
+<title>board.jsp</title>
 </head>
 <body>
-
-
 	<jsp:include page="/WEB-INF/include/header.jsp"></jsp:include>
 	<div></div>
 	<input type="button" class="button1" value="에펨코리아" />

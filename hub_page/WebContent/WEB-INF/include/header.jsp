@@ -6,7 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/header.css" rel="stylesheet" />
-
 <!-- modal부트스트랩 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -22,24 +21,24 @@
 	
 	$(function() {
 		document.getElementById('submit').onclick = function() {
+			var userID = $('#userID').val();
+			var password = $('#password').val()
+			
 			if(check_flag == 0) {
 				alert('중복체크하세요!')
 				return
 			}
 			
-			if($('#password').val() == "") {
+			if(password == "") {
 				alert('비밀번호 입력하세요!')
 				return
 			}
 			
-			if($('#password').val() != $('#passwordCheck').val()) {
+			if(password != $('#passwordCheck').val()) {
 				alert("비밀번호가 일치하지않습니다!")
 				return
 			}
-			
-			var userID = $('#userID').val();
-			var password = $('#password').val();
-			
+				
 			location = 'signup.do?userID=' + userID + '&password=' + password;
 		}
 		
@@ -47,12 +46,11 @@
 			$.ajax({
 				url : 'check.do',
 				data : {
-					userID: document.getElementById('userID').value
+					userID : document.getElementById('userID').value
 				},
 				success : function(data) {
-					if($.trim(data) != id_check) {
+					if($.trim(data) != id_check)
 						check_flag = 1
-					}
 					else
 						check_flag = 0
 
@@ -63,10 +61,9 @@
 	})
 </script>
 
-<title>Insert title here</title>
+<title>header.jsp</title>
 </head>
 <body>
-
 	<div class="main">
 		<div class="mainin">
 			<img src="img/networking.png" class="mimg"
