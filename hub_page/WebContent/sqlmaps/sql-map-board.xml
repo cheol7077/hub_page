@@ -15,4 +15,9 @@
 		FROM member
 		WHERE userID = #{userID}
 	</select>
+	
+	<insert id="insertMember" parameterType="board.vo.MemberVO">
+		INSERT INTO member (userID, password)
+		VALUES(#{userID}, #{password})
+	</insert>
 </mapper>
