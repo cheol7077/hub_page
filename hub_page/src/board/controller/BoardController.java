@@ -25,7 +25,6 @@ public class BoardController {
 	@RequestMapping("/board.do")
 	public String board(@RequestParam("index") int index, @RequestParam("order") String order, @RequestParam("time") int time,
 			HttpServletRequest request) {
-	    
 		List<BoardVO> list = boardService.getBoardList(index, order, time);
 		request.setAttribute("list", list);
 	    
@@ -34,4 +33,19 @@ public class BoardController {
 		else
 			return "boardAdd";
 	}
+	
+	@RequestMapping("/boardSearch.do")
+	public String boardSearch(@RequestParam("index") int index, @RequestParam("order") String order, @RequestParam("time") int time,
+			@RequestParam("searchKeyword") String searchKeyword,@RequestParam("searchOption") String searchOption, HttpServletRequest request) {
+	    System.out.println("서치키워드 : " + searchKeyword + "서치 옵션 : " + searchOption);
+		List<BoardVO> list = boardService.getBoardSearch(index, order, time, searchKeyword, searchOption);
+		request.setAttribute("list", "");
+		request.setAttribute("list", list);
+		if (index == 0)
+			return "board";
+		else
+			return "boardAdd";
+	}
+	
+	
 }

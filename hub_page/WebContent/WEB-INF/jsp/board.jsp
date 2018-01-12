@@ -10,7 +10,7 @@
 <script>
 	var index = 0;
 	var order = "";
-	var time = "";
+	var time = 24;
 
 	function Request() {
 		var requestParam = "";
@@ -33,8 +33,10 @@
 
 	$(function() {
 		var request = new Request();
+		if(request.getParameter("order")!=null && request.getParameter("time") !=0 ){
 		order = request.getParameter("order");
 		time = request.getParameter("time");
+		}
 		$(window).scroll(function() {
 			var sh = $(window).scrollTop() + $(window).height();
 			var dh = $(document).height();
@@ -45,7 +47,7 @@
 					data : {
 						index : index,
 						order : order,
-						time : time
+						time : time,
 					},
 					success : function(data) {
 						$('body').append(data);
@@ -55,17 +57,17 @@
 		})
 		
 		document.getElementById('hits').onclick=function() {
-			alert("board.do?index=0&order=hits?time="+time)
-			location.href="board.do?index=0&order=hits&time="+time
+			location.href="board.do?index=0&order=hits&time="+time;
 		}
 		
-		document.getElementById('replyCnt').onclick=function() {
-			location.href="board.do?index=0&order=replyCnt&time="+time
+		document.getElementById('commentCnt').onclick=function() {
+			location.href="board.do?index=0&order=commentCnt&time="+time;
 		}
 		
 		document.getElementById('date').onclick=function() {
-			location.href="board.do?index=0&order=date&time="+time
+			location.href="board.do?index=0&order=date&time="+time;
 		}
+		
 	});
 </script>
 <style>
@@ -205,14 +207,27 @@ img {
 	<input type="button" value="클리앙" /> <br/>
 
 	<input id="hits" type="button" value="조회수" />
-	<input id="replyCnt" type="button" value="추천수" />
+	<input id="commentCnt" type="button" value="추천수" />
 	<input id="date" type="button" value="최신" />
 	<br />
 	<input type="button" value="3시간" />
 	<input type="button" value="6시간" />
 	<input type="button" value="12시간" />
 	<input type="button" value="24시간" />
-
+	<br/>
+	<form action="boardSearch.do" method="post">
+	<select name = "searchOption">
+		<option value = "titleSearch">검색 방법 선택</option>
+		<option value = "titleSearch">제목</option>
+		<option value = "contentSearch">내용</option>
+		<option value = "titleContentSearch">제목+내용</option>
+	</select>
+	<input type="text" size="40" name="searchKeyword" id = "search" required=required />
+	<input type = "hidden" value = 0 name = "index">
+	<input type = "hidden" value = "" name = "order">
+	<input type = "hidden" value = 24 name = "time">
+	<input type="submit" value="글검색" >
+	</form>
 	<c:forEach var="board" items="${requestScope.list }">
 		<div class="qa-message-list" id="wallmessages">
 			<div class="message-item" id="m16">
@@ -238,7 +253,27 @@ img {
 							</div>
 						</div>
 					</div>
-					<div class="qa-message-content">${board.content }</div>
+					<!-- <div class="qa-message-content">${board.content }</div> -->
+					<div>
+					<c:set var="content" value="${board.content}"/>
+					<% String content = (String)pageContext.getAttribute("content");
+					content = content.replace("\\", "::");
+					String contents[] = content.split("::");
+					for(int i=0; i<contents.length; i++){
+						if(contents[i].startsWith("http")&&((contents[i].endsWith("jpg")||(contents[i].endsWith("bmp"))||(contents[i].endsWith("gif"))||(contents[i].endsWith("png"))||(contents[i].endsWith("jpeg")) ))){
+							contents[i] = "<img width = 200 height = 200 src =\'" +contents[i] + "\'/>" + "";
+						}else if(contents[i].startsWith("https://www.youtube.com")||(contents[i].startsWith("https://media"))){
+							contents[i] = "<iframe src =\'" +contents[i] + "\'/>"  ;
+						}else if(contents[i].startsWith("http")){
+							contents[i] = "<a href =\'" +contents[i] + "\'/>" ;						
+						}
+						else{
+							contents[i] = contents[i].replace("::","");
+						}
+						out.print("<p>" + contents[i] + "</p>");
+					}
+					%>
+					</div>
 				</div>
 			</div>
 		</div>

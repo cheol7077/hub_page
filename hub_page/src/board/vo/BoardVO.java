@@ -7,7 +7,7 @@ public class BoardVO {
 	private String date;
 	private String url;
 	private int hits;
-	private int replyCnt;
+	private int commentCnt;
 	
 	public int getId() {
 		return id;
@@ -45,11 +45,11 @@ public class BoardVO {
 	public void setHits(int hits) {
 		this.hits = hits;
 	}
-	public int getReplyCnt() {
-		return replyCnt;
+	public int getcommentCnt() {
+		return commentCnt;
 	}
-	public void setReplyCnt(int replyCnt) {
-		this.replyCnt = replyCnt;
+	public void setcommentCnt(int commentCnt) {
+		this.commentCnt = commentCnt;
 	}
 	
 }

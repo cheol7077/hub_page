@@ -26,7 +26,28 @@
 						</div>
 					</div>
 				</div>
-				<div class="qa-message-content">${board.content }</div>
+				<!-- <div class="qa-message-content">${board.content }</div> -->
+				 <div>
+				<c:set var="content" value="${board.content}"/>
+					<% String content = (String)pageContext.getAttribute("content");
+					content = content.replace("\\", "::");
+					String contents[] = content.split("::");
+					for(int i=0; i<contents.length; i++){
+						if(contents[i].startsWith("http")&&((contents[i].endsWith("jpg")||(contents[i].endsWith("bmp"))||(contents[i].endsWith("gif"))||(contents[i].endsWith("png"))||(contents[i].endsWith("jpeg")) ))){
+							contents[i] = "<img width = 200 height = 200 src =\'" +contents[i] + "\'/>" + "";
+						}else if(contents[i].startsWith("https://www.youtube.com")||(contents[i].startsWith("https://media"))){
+							contents[i] = "<iframe src =\'" +contents[i] + "\'/>"  ;
+						}else if(contents[i].startsWith("http")){
+							contents[i] = "<a href =\'" +contents[i] + "\'/>" ;						
+						}
+						else{
+							contents[i] = contents[i].replace("::","");
+						}
+						out.print("<p>" + contents[i] + "</p>");
+					}
+					%>
+				</div> 
+				
 			</div>
 		</div>
 	</div>

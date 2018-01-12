@@ -18,4 +18,10 @@ public class BoardService {
 		BoardDAO boardDao = sqlSessionTemplate.getMapper(BoardDAO.class);
 		return boardDao.getBoardList(index, order, time);
 	}
+	
+	public List<BoardVO> getBoardSearch(int index, String order, int time, String searchKeyword, String searchOption){
+		BoardDAO boardDao = sqlSessionTemplate.getMapper(BoardDAO.class);
+		System.out.println("인덱스 : " + index + "order : " + order + "타임 : " + time + "서치키워드 : " + searchKeyword + "서치 옵션 : " + searchOption);
+		return boardDao.getBoardSearch(index, order, time, searchKeyword, searchOption);
+	}
 }
