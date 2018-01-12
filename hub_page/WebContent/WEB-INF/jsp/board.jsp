@@ -93,7 +93,7 @@
 		}
 
 		document.getElementById('signup').onclick = function() {
-			location.href = "signup.do"
+			location.href = "signupUI.do"
 		}
 	});
 </script>

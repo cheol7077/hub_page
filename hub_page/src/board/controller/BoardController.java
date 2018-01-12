@@ -29,9 +29,4 @@ public class BoardController {
 		else
 			return "boardAdd";
 	}
-	
-	@RequestMapping("/signup.do")
-	public String signupUI() {
-		return "signupUI";
-	}
 }
