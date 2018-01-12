@@ -16,4 +16,9 @@ public class MemberService {
 		MemberDAO memberDao = sqlSessionTemplate.getMapper(MemberDAO.class);
 		return memberDao.insertMember(mv);
 	}
+	
+	public MemberVO checkMember(String userID) {
+		MemberDAO memberDao = sqlSessionTemplate.getMapper(MemberDAO.class);
+		return memberDao.checkMember(userID);
+	}
 }
