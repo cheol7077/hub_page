@@ -10,4 +10,9 @@
 		order by ${order} desc
 		limit #{index}, 10
 	</select>
+	<select id="checkMember" parameterType="String" resultType="board.vo.MemberVO">
+		SELECT count(*)
+		FROM member
+		WHERE userID = #{userID}
+	</select>
 </mapper>
