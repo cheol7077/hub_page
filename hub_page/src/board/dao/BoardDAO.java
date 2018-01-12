@@ -9,5 +9,5 @@ import board.vo.MemberVO;
 
 public interface BoardDAO {
 	public List<BoardVO> getBoardList(@Param("index") int index, @Param("order") String order, @Param("time") int time);
-	public MemberVO getMember(@Param("userID") String userID);
+	public MemberVO checkMember(@Param("userID") String userID);
 }
