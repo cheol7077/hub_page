@@ -17,7 +17,9 @@
 	var index = 0;
 	var order = "";
 	var time = "";
-
+	var HEAD = "board.do?index=0&order="
+	var MID = "&time="
+	
 	function Request() {
 		var requestParam = "";
 		this.getParameter = function(param) {
@@ -59,41 +61,18 @@
 				})
 			}
 		})
-		document.getElementById('hits').onclick = function() {
-			location.href = "board.do?index=0&order=hits&time=" + time
-		}
 
-		document.getElementById('replyCnt').onclick = function() {
-			location.href = "board.do?index=0&order=commentCnt&time=" + time
-		}
+		$('.order').click(function() {
+			location.href = HEAD + $(this).val() + MID + time
+		})
+		
+		$('.time').click(function(){
+			location.href = HEAD + order + MID + $(this).val()
+		})
 
-		document.getElementById('date').onclick = function() {
-			location.href = "board.do?index=0&order=date&time=" + time
-		}
-
-		document.getElementById('3hours').onclick = function() {
-			time = 3
-			location.href = "board.do?index=0&order="+order+"&time=" + time
-		}
-
-		document.getElementById('6hours').onclick = function() {
-			time = 6
-			location.href = "board.do?index=0&order="+order+"&time=" + time
-		}
-
-		document.getElementById('12hours').onclick = function() {
-			time = 12
-			location.href = "board.do?index=0&order="+order+"&time=" + time
-		}
-
-		document.getElementById('24hours').onclick = function() {
-			time = 24
-			location.href = "board.do?index=0&order="+order+"&time=" + time
-		}
-
-		document.getElementById('signup').onclick = function() {
-			location.href = "signupUI.do"
-		}
+		$(document).on('click', '.scrap', function(){
+			alert("scrap!!")
+		})
 	});
 </script>
 
@@ -107,15 +86,15 @@
 	<input type="button" class="button1" value="클리앙" />
 	<br />
 
-	<input id="hits" class="button1" type="button" value="조회수" />
-	<input id="replyCnt" class="button1" type="button" value="추천수" />
-	<input id="date" class="button1" type="button" value="최신" />
+	<button class="button1 order" value="hits">조회수</button>
+	<button class="button1 order" value="commentCnt">댓글수</button>
+	<button class="button1 order" value="date">최신</button>
 	<br />
 
-	<input id="3hours" type="button" class="button1" value="3시간" />
-	<input id="6hours" type="button" class="button1" value="6시간" />
-	<input id="12hours" type="button" class="button1" value="12시간" />
-	<input id="24hours" type="button" class="button1" value="24시간" />
+	<button class="button1 time" value="3">3시간전</button>
+	<button class="button1 time" value="6">6시간전</button>
+	<button class="button1 time" value="12">12시간전</button>
+	<button class="button1 time" value="24">24시간전</button>
 	<div></div>
 	<c:forEach var="board" items="${requestScope.list }">
 		<div class="qa-message-list" id="wallmessages">
@@ -129,6 +108,8 @@
 						</div>
 						<div class="user-detail">
 							<h5 class="handle">${board.title }</h5>
+							<h4 class="handle">조회수:${board.hits } 댓글수:${board.commentCnt } 날짜:${board.date }</h4>
+							<button class="scrap" value="${board.id}">스크랩</button>
 							<div class="post-meta">
 								<div class="asker-meta">
 									<span class="qa-message-what"></span> <span
