@@ -1,6 +1,7 @@
 package member.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,27 +13,43 @@ import member.vo.MemberVO;
 
 @Controller
 public class MemberController {
+	final String initBoard = "redirect:/board.do?index=0&order=hits&time=3";
+
 	@Autowired
 	MemberService memberService;
-	
+
 	@RequestMapping("/signupUI.do")
 	public String signupUI() {
 		return "signupUI";
 	}
-	
+
 	@RequestMapping("/signup.do")
 	public String signup(MemberVO mv) {
 		memberService.insertMember(mv);
-		
-		return "redirect:/board.do?index=0&order=hits&time=3";
+
+		return initBoard;
+	}
+
+	@RequestMapping("/memberCheck.do")
+	public void check(@RequestParam("userID") String userID, HttpServletRequest request) {
+		MemberVO mv = memberService.getMember(userID);
+		request.setAttribute("member", mv);
+	}
+
+	@RequestMapping("/login.do")
+	public void login(@RequestParam("userID") String userID, @RequestParam("password") String password,
+			HttpSession session) {
+		int check = memberService.checkMember(userID, password);
+
+		if (check != 0) {
+			session.setAttribute("sessionId", userID);
+		} else
+			System.out.println("null!");
 	}
 	
-	@RequestMapping("/check.do")
-	public String check(@RequestParam("userID") String userID, HttpServletRequest request) {
-		MemberVO mv = memberService.checkMember(userID);
-		
-		request.setAttribute("member", mv);
-		
-		return "memberCheck";
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return initBoard;
 	}
 }

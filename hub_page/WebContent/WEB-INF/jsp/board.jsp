@@ -73,22 +73,22 @@
 
 		document.getElementById('3hours').onclick = function() {
 			time = 3
-			location.href = "board.do?index=0&order=date&time=" + time
+			location.href = "board.do?index=0&order="+order+"&time=" + time
 		}
 
 		document.getElementById('6hours').onclick = function() {
 			time = 6
-			location.href = "board.do?index=0&order=date&time=" + time
+			location.href = "board.do?index=0&order="+order+"&time=" + time
 		}
 
 		document.getElementById('12hours').onclick = function() {
 			time = 12
-			location.href = "board.do?index=0&order=date&time=" + time
+			location.href = "board.do?index=0&order="+order+"&time=" + time
 		}
 
 		document.getElementById('24hours').onclick = function() {
 			time = 24
-			location.href = "board.do?index=0&order=date&time=" + time
+			location.href = "board.do?index=0&order="+order+"&time=" + time
 		}
 
 		document.getElementById('signup').onclick = function() {

@@ -44,7 +44,7 @@
 		
 		document.getElementById('check').onclick = function() {
 			$.ajax({
-				url : 'check.do',
+				url : 'memberCheck.do',
 				data : {
 					userID : document.getElementById('userID').value
 				},
@@ -58,13 +58,27 @@
 				}
 			})
 		}
+		
+		document.getElementById('login').onclick = function() {
+			$.ajax({
+				url:"login.do",
+				data: {
+					userID : $('#loginId').val(),
+					password : $('#loginPw').val()
+				},
+				success : function(data) {
+					$('#main').append("<a href='logout.do'>로그아웃</a>")
+				}
+			})
+		}
+		
 	})
 </script>
 
 <title>header.jsp</title>
 </head>
 <body>
-	<div class="main">
+	<div id="main" class="main">
 		<div class="mainin">
 			<img src="img/networking.png" class="mimg"
 				style="margin-left: 10px; margin-top: 23px; max-width: 760px; vertical-align: middle">
@@ -145,11 +159,11 @@
 						<table>
 							<tr>
 								<td>ID</td>
-								<td><input type="text" id="id" /></td>
+								<td><input type="text" id="loginId" /></td>
 							</tr>
 							<tr>
 								<td>비밀번호</td>
-								<td><input type="password" id="pw" /></td>
+								<td><input type="password" id="loginPw" /></td>
 							</tr>
 						</table>
 						<!-- 			<input type="submit" value="입력완료" /> -->
@@ -158,7 +172,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">LOGIN</button>
+					<button type="button" id="login" class="btn btn-primary">LOGIN</button>
 					<button type="button" class="btn btn-primary">JOIN</button>
 				</div>
 			</div>
