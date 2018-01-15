@@ -8,9 +8,9 @@
 
 <html>
 	<head>
-	<meta charset="EUC-KR">
+	<meta charset="UTF-8">
 	<script>
-	var id_check = "Áßº¹!"
+	var id_check = "ì¤‘ë³µ!"
 	var check_flag = 0
 	
 	$(function() {
@@ -19,17 +19,17 @@
 			var password = $('#password').val()
 			
 			if(check_flag == 0) {
-				alert('Áßº¹Ã¼Å©ÇÏ¼¼¿ä!')
+				alert('ì¤‘ë³µì²´í¬í•˜ì„¸ìš”!')
 				return
 			}
 			
 			if(password == "") {
-				alert('ºñ¹Ğ¹øÈ£ ÀÔ·ÂÇÏ¼¼¿ä!')
+				alert('ë¹„ë°€ë²ˆí˜¸ ì…ë ¥í•˜ì„¸ìš”!')
 				return
 			}
 			
 			if(password != $('#passwordCheck').val()) {
-				alert("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö¾Ê½À´Ï´Ù!")
+				alert("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ì•ŠìŠµë‹ˆë‹¤!")
 				return
 			}
 				
@@ -59,7 +59,7 @@
 					password : $('#loginPw').val()
 				},
 				success : function(data) {
-					$('#main').append("<a href='logout.do'>·Î±×¾Æ¿ô</a>")
+					$('#main').append("<a href='logout.do'>ë¡œê·¸ì•„ì›ƒ</a>")
 				}
 			})
 		}
@@ -73,7 +73,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
-<!-- modalºÎÆ®½ºÆ®·¦ -->
+<!-- modalë¶€íŠ¸ìŠ¤íŠ¸ë© -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -153,15 +153,15 @@
 						<tr>
 							<td>ID</td>
 							<td><input type="text" id="userID" /></td>
-							<td><button class="btn btn-secondary" id="check">Áßº¹È®ÀÎ</button></td>
+							<td><button class="btn btn-secondary" id="check">ì¤‘ë³µí™•ì¸</button></td>
 							<td id='checkmeg'></td>
 						</tr>
 						<tr>
-							<td>ºñ¹Ğ¹øÈ£</td>
+							<td>ë¹„ë°€ë²ˆí˜¸</td>
 							<td><input type="password" id="password" /></td>
 						</tr>
 						<tr>
-							<td>ºñ¹Ğ¹øÈ£ ÀçÀÔ·Â</td>
+							<td>ë¹„ë°€ë²ˆí˜¸ ì¬ì…ë ¥</td>
 							<td><input type="password" id="passwordCheck" /></td>
 						</tr>
 					</table>
@@ -200,7 +200,7 @@
 			    </div>
 
 						
-						<!-- 			<input type="submit" value="ÀÔ·Â¿Ï·á" /> -->
+						<!-- 			<input type="submit" value="ì…ë ¥ì™„ë£Œ" /> -->
 					</form>
 				</div>
 				<div class="modal-footer">

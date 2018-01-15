@@ -118,7 +118,7 @@
 <title>The Hub Factory</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/include/header.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/include/header.html"></jsp:include>
 	<div></div>
 	<input type="button" class="button1" value="에펨코리아" />
 	<input type="button" class="button1" value="뽐뿌" />
