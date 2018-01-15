@@ -8,7 +8,7 @@ public class BoardVO {
 	private String url;
 	private int hits;
 	private int commentCnt;
-	
+	private String communityID;
 	public int getId() {
 		return id;
 	}
@@ -45,11 +45,18 @@ public class BoardVO {
 	public void setHits(int hits) {
 		this.hits = hits;
 	}
-	public int getcommentCnt() {
+	public int getCommentCnt() {
 		return commentCnt;
 	}
-	public void setcommentCnt(int commentCnt) {
+	public void setCommentCnt(int commentCnt) {
 		this.commentCnt = commentCnt;
 	}
+	public String getCommunityID() {
+		return communityID;
+	}
+	public void setCommunityID(String communityID) {
+		this.communityID = communityID;
+	}
+
 	
-}
+}	
