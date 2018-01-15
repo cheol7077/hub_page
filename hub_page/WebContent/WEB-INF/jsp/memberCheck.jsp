@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+
 	
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <%@ page import="member.vo.*"%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -11,12 +13,14 @@
 	if (mv != null) {
 %>
 
-          <span class="glyphicon glyphicon-remove" style="color:#FF0000;">»ç¿ëºÒ°¡´É</span> 
+
+          <span class="glyphicon glyphicon-remove" style="color:#FF0000;">ì‚¬ìš©ë¶ˆê°€</span> 
 
 <%
 	} else {
 %>
-          <span class="glyphicon glyphicon-ok" style="color:#0404B4;">»ç¿ë°¡´É</span> 
+
+          <span class="glyphicon glyphicon-ok" style="color:#0404B4;">ì‚¬ìš©ê°€ëŠ¥</span> 
 
 <%
 	}

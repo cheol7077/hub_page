@@ -7,9 +7,15 @@
 		INSERT INTO member (userID, password)
 		VALUES(#{userID}, #{password})
 	</insert>
-	<select id="checkMember" parameterType="String" resultType="member.vo.MemberVO">
+	<select id="getMember" parameterType="String" resultType="member.vo.MemberVO">
 		SELECT *
 		FROM member
 		WHERE userID = #{userID}
+	</select>
+	<select id="checkMember" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM member
+		WHERE userID = #{userID}
+		AND password = #{password}
 	</select>
 </mapper>

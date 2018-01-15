@@ -38,7 +38,7 @@
 		
 		document.getElementById('check').onclick = function() {
 			$.ajax({
-				url : 'check.do',
+				url : 'memberCheck.do',
 				data : {
 					userID : document.getElementById('userID').value
 				},
@@ -48,6 +48,18 @@
 					else
 						check_flag = 0
 					$('#checkmeg').html(data)
+				}
+			})
+		}
+		document.getElementById('login').onclick = function() {
+			$.ajax({
+				url:"login.do",
+				data: {
+					userID : $('#loginId').val(),
+					password : $('#loginPw').val()
+				},
+				success : function(data) {
+					$('#main').append("<a href='logout.do'>·Î±×¾Æ¿ô</a>")
 				}
 			})
 		}
