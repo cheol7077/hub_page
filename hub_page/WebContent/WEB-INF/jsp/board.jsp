@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.List"%><%-- 
-<%@ page import="board.vo.BoardVO" %> --%>
+<%@ page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -19,7 +18,7 @@
 	var time = "";
 	var HEAD = "board.do?index=0&order="
 	var MID = "&time="
-	
+
 	function Request() {
 		var requestParam = "";
 		this.getParameter = function(param) {
@@ -65,13 +64,13 @@
 		$('.order').click(function() {
 			location.href = HEAD + $(this).val() + MID + time
 		})
-		
-		$('.time').click(function(){
+
+		$('.time').click(function() {
 			location.href = HEAD + order + MID + $(this).val()
 		})
 
-		$(document).on('click', '.scrap', function(){
-			alert("scrap!!")
+		$(document).on('click', '.scrap', function() {
+			location.href = "scrap.do?uid="
 		})
 	});
 </script>
@@ -108,8 +107,15 @@
 						</div>
 						<div class="user-detail">
 							<h5 class="handle">${board.title }</h5>
-							<h4 class="handle">조회수:${board.hits } 댓글수:${board.commentCnt } 날짜:${board.date }</h4>
+							<h4 class="handle">조회수:${board.hits } 댓글수:${board.commentCnt }
+								날짜:${board.date }</h4>
+							<%
+								if (session.getAttribute("sessionId") != null) {
+							%>
 							<button class="scrap" value="${board.id}">스크랩</button>
+							<%
+								}
+							%>
 							<div class="post-meta">
 								<div class="asker-meta">
 									<span class="qa-message-what"></span> <span
