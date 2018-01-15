@@ -17,6 +17,23 @@
 	var index = 0;
 	var order = "";
 	var time = 24;
+	
+// 	function searchCheck() {
+// 	    var form = document.searchForm;
+// 	    if(!form['searchKeyword'].value) {
+// 	        alert("검색어를 입력해주세요");
+// 	        form['searchKeyword'].focus();
+// 	        return
+// 	    }else if(form['searchKeyword'].value.length<2){
+// 	        alert("검색어는 2자 이상 입력해 주세요");
+// 	        form['searchKeyword'].focus();
+// 	        return
+// 	    }else{
+// 	    alert('검색합니다');
+// 	    form.action = "boardSearch.do"
+// 	    }
+// 	}
+	
 	function Request() {
 		var requestParam = "";
 		this.getParameter = function(param) {
@@ -92,9 +109,10 @@
       document.getElementById('signup').onclick = function() {
          location.href = "signupUI.do"
       }
+      
 	});
 </script>
-
+<head>
 <title>The Hub Factory</title>
 </head>
 <body>
@@ -109,25 +127,26 @@
 	<input id="replyCnt" class="button1" type="button" value="추천수" />
 	<input id="date" class="button1" type="button" value="최신" />
 	<br/>
-	
+
 	<input id="3hours" type="button" class="button1" value="3시간" />
 	<input id="6hours" type="button" class="button1" value="6시간" />
 	<input id="12hours" type="button" class="button1" value="12시간" />
 	<input id="24hours" type="button" class="button1" value="24시간" />
-	<input id="signup" type="button" value="회원가입" />
+	<br/>
 	<div></div>
-	<form action="boardSearch.do" method="post">
+	<form action = "boardSearch.do" method="post" name = "searchForm" >
 		<select name = "searchOption">
 			<option value = "titleSearch">검색 방법 선택</option>
 			<option value = "titleSearch">제목</option>
 			<option value = "contentSearch">내용</option>
 			<option value = "titleContentSearch">제목+내용</option>
 		</select>
-		<input type="text" size="40" name="searchKeyword" id = "search" required=required />
+		<input type="text" size="40" name ="searchKeyword" id = "searchKeyword"  minlength="2"  maxlength="10" required = "required"/>
 		<input type = "hidden" value = 0 name = "index">
 		<input type = "hidden" value = "" name = "order">
 		<input type = "hidden" value = 24 name = "time">
-		<input type="submit" value="글검색" >
+		<input type="submit" value="글검색" id = "search" >
+		
 	</form>
 	<c:forEach var="board" items="${requestScope.list }">
 		<div class="qa-message-list" id="wallmessages">

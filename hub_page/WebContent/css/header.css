@@ -15,9 +15,7 @@ p{
 	font: serif;
 	
 }
-.ming{
-	    padding: 14px 16px;
-}
+
 .mainin{
 	float: left;
 }
@@ -39,10 +37,29 @@ li a {
     color: white;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
+    text-decoration: none
 }
 
 li a:hover {
     background-color: #0881A3;
 }
+
+.btn{
+	margin-top:40px;
+	margin-left: 40px;
+    background-color: #FDE9DF; 
+    color: white; 
+    border: 2px solid #FDE9DF;
+    border-radius: 8px;
+    position: relative;
+}
+
+.btn:hover {
+	text:"join";
+    background-color: #FDE9DF;
+    color: #0881A3;
+    border-radius: 8px;
+}
+
+
 

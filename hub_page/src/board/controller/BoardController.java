@@ -14,6 +14,8 @@ import board.vo.BoardVO;
 
 @Controller
 public class BoardController {
+	final int INIT = 0;
+	
 	@Autowired
 	BoardService boardService;
 
@@ -85,14 +87,9 @@ public class BoardController {
 		request.setAttribute("list", "");
 		request.setAttribute("list", list);
 	    
-		if (index == 0)
+		if (index == INIT)
 			return "board";
 		else
 			return "boardAdd";
-	}
-	
-	@RequestMapping("/signup.do")
-	public String signupUI() {
-		return "signupUI";
 	}
 }

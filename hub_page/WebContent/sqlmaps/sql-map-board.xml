@@ -4,11 +4,11 @@
 
 <mapper namespace="board.dao.BoardDAO">
 	<select id="getBoardList" parameterType="map" resultType="board.vo.BoardVO">
-		select *
-		from commu
-		where date >= date_add(now(), interval-${time} HOUR)		
-		order by ${order} desc
-		limit #{index}, 10
+		SELECT *
+		FROM commu
+		WHERE date >= date_add(now(), interval-${time} HOUR)
+		ORDER BY ${order} desc
+		LIMIT #{index}, 10
 	</select>
 
 	<select id="getBoardSearch" parameterType="map" resultType="board.vo.BoardVO">

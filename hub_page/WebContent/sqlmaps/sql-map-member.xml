@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.rog//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member.dao.MemberDAO">
+	<insert id="insertMember" parameterType="member.vo.MemberVO">
+		INSERT INTO member (userID, password)
+		VALUES(#{userID}, #{password})
+	</insert>
+	<select id="checkMember" parameterType="String" resultType="member.vo.MemberVO">
+		SELECT *
+		FROM member
+		WHERE userID = #{userID}
+	</select>
+</mapper>
