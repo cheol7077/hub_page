@@ -10,4 +10,8 @@
 		ORDER BY ${order} desc
 		LIMIT #{index}, 10
 	</select>
+	<insert id="scrapBoard" parameterType="map">
+		INSERTINTO scrap (uid, bid)
+		VALUES(#{uid}, #{bid})
+	</insert>
 </mapper>

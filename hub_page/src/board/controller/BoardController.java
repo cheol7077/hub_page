@@ -15,20 +15,24 @@ import board.vo.BoardVO;
 @Controller
 public class BoardController {
 	final int INIT = 0;
-	
+
 	@Autowired
 	BoardService boardService;
 
 	@RequestMapping("/board.do")
-	public String board(@RequestParam("index") int index, @RequestParam("order") String order, @RequestParam("time") int time,
-			HttpServletRequest request) {
-	    
+	public String board(@RequestParam("index") int index, @RequestParam("order") String order,
+			@RequestParam("time") int time, HttpServletRequest request) {
 		List<BoardVO> list = boardService.getBoardList(index, order, time);
 		request.setAttribute("list", list);
-	    
+
 		if (index == INIT)
 			return "board";
 		else
 			return "boardAdd";
+	}
+
+	@RequestMapping("/scrap.do")
+	public void scrap(@RequestParam("uid") int uid, @RequestParam("bid") int bid) {
+		boardService.scrapBoard(uid, bid);
 	}
 }

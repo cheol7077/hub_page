@@ -37,14 +37,15 @@ public class MemberController {
 	}
 
 	@RequestMapping("/login.do")
-	public void login(@RequestParam("userID") String userID, @RequestParam("password") String password,
+	public String login(@RequestParam("userID") String userID, @RequestParam("password") String password,
 			HttpSession session) {
 		int check = memberService.checkMember(userID, password);
 
 		if (check != 0) {
 			session.setAttribute("sessionId", userID);
-		} else
-			System.out.println("null!");
+		}
+		
+		return initBoard;
 	}
 	
 	@RequestMapping("/logout.do")

@@ -17,6 +17,9 @@
 					</div>
 					<div class="user-detail">
 						<h5 class="handle">${board.title }</h5>
+						<h4 class="handle">조회수:${board.hits } 댓글수:${board.commentCnt }
+							날짜:${board.date }</h4>
+						<button class="scrap" value="${board.id}">스크랩</button>
 						<div class="post-meta">
 							<div class="asker-meta">
 								<span class="qa-message-what"></span> <span

@@ -60,16 +60,7 @@
 		}
 		
 		document.getElementById('login').onclick = function() {
-			$.ajax({
-				url:"login.do",
-				data: {
-					userID : $('#loginId').val(),
-					password : $('#loginPw').val()
-				},
-				success : function(data) {
-					$('#main').append("<a href='logout.do'>로그아웃</a>")
-				}
-			})
+			location.href = "login.do?userID=" + $('#loginId').val() + "&password=" + $('#loginPw').val()
 		}
 		
 	})
@@ -86,12 +77,20 @@
 		<div class="mainin">
 			<p>THE HUB FACTORY</p>
 		</div>
-
+		<%
+			if (session.getAttribute("sessionId") == null) {
+		%>
 		<button type="button" class="btn" data-toggle="modal"
 			data-target="#exampleModal">회원가입</button>
 		<button type="button" class="btn" data-toggle="modal"
 			data-target="#exampleModal2">로그인</button>
-
+		<%
+			} else {
+		%>
+		<a href='logout.do'>로그아웃</a>
+		<%
+			}
+		%>
 		<!-- 	<input id="signup" type="button" value="회원가입" /> -->
 	</div>
 
