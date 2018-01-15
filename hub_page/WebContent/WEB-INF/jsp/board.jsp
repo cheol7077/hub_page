@@ -74,6 +74,7 @@
 				})
 			}
 		})
+		
       document.getElementById('hits').onclick = function() {
          location.href = "board.do?index=0&order=hits&time=" + time
       }
@@ -105,6 +106,7 @@
          time = 24
          location.href = "board.do?index=0&order="+order+"&time=" + time
       }
+		
 
       document.getElementById('signup').onclick = function() {
          location.href = "signupUI.do"
