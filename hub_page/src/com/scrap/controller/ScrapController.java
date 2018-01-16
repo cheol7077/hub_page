@@ -11,15 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.board.service.BoardService;
 import com.board.vo.BoardVO;
 import com.member.service.MemberService;
 import com.scrap.service.ScrapService;
 
 @Controller
 public class ScrapController {
-	@Autowired
-	BoardService boardService;
 	@Autowired
 	MemberService memberService;
 	@Autowired

@@ -7,6 +7,9 @@
 		SELECT *
 		FROM commu
 		WHERE date >= date_add(now(), interval-#{time} HOUR)
+		<if test="site != 'total'">
+			AND communityID =#{site}
+		</if>
 		ORDER BY ${order} desc
 		LIMIT #{index}, 10
 	</select>
@@ -14,15 +17,16 @@
 		select *
 		from commu
 		<if test="searchOption.equals('titleSearch') ">
-		where title like CONCAT('%',#{searchKeyword},'%')
+			where title like CONCAT('%',#{searchKeyword},'%')
 		</if>
-		
+
 		<if test="searchOption.equals('contentSearch')">
-		where content like CONCAT('%',#{searchKeyword},'%')
+			where content like CONCAT('%',#{searchKeyword},'%')
 		</if>
-		
+
 		<if test="searchOption.equals('titleContentSearch')">
-		where title like CONCAT('%',#{searchKeyword},'%') || content like CONCAT('%',#{searchKeyword},'%')
-		</if>		
+			where title like CONCAT('%',#{searchKeyword},'%') || content like
+			CONCAT('%',#{searchKeyword},'%')
+		</if>
 	</select>
 </mapper>

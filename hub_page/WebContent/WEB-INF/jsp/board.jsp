@@ -13,9 +13,10 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script>
-	var index = 0;
-	var order = "";
-	var time = "";
+	var index = 0
+	var order = ""
+	var time = ""
+	var site = ""
 	var HEAD = "board.do?index=0&order="
 	var MID = "&time="
 
@@ -42,6 +43,7 @@
 				&& request.getParameter("time") != 0) {
 			order = request.getParameter("order");
 			time = request.getParameter("time");
+			site = request.getParameter("site")
 		}
 
 		$(window).scroll(function() {
@@ -64,11 +66,11 @@
 		})
 
 		$('.order').click(function() {
-			location.href = HEAD + $(this).val() + MID + time
+			location.href = "board.do?index=0&order=" + $(this).val() + "&time=" + time +"&site=" + site
 		})
 
 		$('.time').click(function() {
-			location.href = HEAD + order + MID + $(this).val()
+			location.href = "board.do?index=0&order=" + order + "&time=" + $(this).val() +"&site=" + site
 		})
 
 		$(document).on('click', '.scrap', function() {
@@ -85,9 +87,9 @@
 				}
 			})
 		})
-		
-		$('#test').click(function(){
-			location.href="test.do"
+
+		$('.site').click(function() {
+			location.href = "board.do?index=0&order=" + order + "&time=" + time + "&site=" + $(this).val()
 		})
 	});
 </script>
@@ -97,9 +99,11 @@
 <body>
 	<jsp:include page="/WEB-INF/include/header.jsp"></jsp:include>
 	<div></div>
-	<input type="button" class="button1" value="에펨코리아" />
-	<input type="button" class="button1" value="뽐뿌" />
-	<input type="button" class="button1" value="클리앙" />
+	<button class="button site" value="c1">전체</button>
+	<button class="button site" value="c1">FM코리아</button>
+	<button class="button site" value="c2">뽐뿌</button>
+	<button class="button site" value="c3">웃긴대학</button>
+	<button class="button site" value="c4">루리웹</button>
 	<br />
 
 	<button class="button order" value="hits">조회수</button>
@@ -148,22 +152,8 @@
 							<%
 								}
 							%>
-							<div class="post-meta">
-								<div class="asker-meta">
-									<span class="qa-message-what"></span> <span
-										class="qa-message-when"><i
-										class="glyphicon glyphicon-time"></i><span
-										class="qa-message-when-data">${board.date }</span> </span> <span
-										class="qa-message-who"> <span
-										class="qa-message-who-pad">by </span> <span
-										class="qa-message-who-data"><a
-											href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko">${board.hits }</a></span>
-									</span>
-								</div>
-							</div>
 						</div>
 					</div>
-					<div class="qa-message-content">${board.content }</div>
 				</div>
 			</div>
 		</div>

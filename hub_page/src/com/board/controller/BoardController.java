@@ -21,8 +21,8 @@ public class BoardController {
 
 	@RequestMapping("/board.do")
 	public String board(@RequestParam("index") int index, @RequestParam("order") String order, @RequestParam("time") int time,
-			HttpServletRequest request) {
-		List<BoardVO> list = boardService.getBoardList(index, order, time);
+			@RequestParam("site") String site, HttpServletRequest request) {
+		List<BoardVO> list = boardService.getBoardList(index, order, time, site);
 		String temp="";
 		
 		for(int i=0; i<list.size(); i++) {
@@ -50,7 +50,7 @@ public class BoardController {
 		request.setAttribute("list", "");
 		request.setAttribute("list", list);
 	    
-		if (index == 0)
+		if (index == INIT)
 			return "board";
 		else
 			return "boardAdd";
@@ -86,7 +86,6 @@ public class BoardController {
 		
 		request.setAttribute("list", "");
 		request.setAttribute("list", list);
-	    
 		if (index == INIT)
 			return "board";
 		else
