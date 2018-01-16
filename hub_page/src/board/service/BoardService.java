@@ -13,14 +13,14 @@ import board.vo.BoardVO;
 public class BoardService {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
-
+	
 	public List<BoardVO> getBoardList(int index, String order, int time) {
 		BoardDAO boardDao = sqlSessionTemplate.getMapper(BoardDAO.class);
 		return boardDao.getBoardList(index, order, time);
 	}
-
-	public int scrapBoard(int uid, int bid) {
+	
+	public List<BoardVO> getBoardSearch(int index, String order, int time, String searchKeyword, String searchOption){
 		BoardDAO boardDao = sqlSessionTemplate.getMapper(BoardDAO.class);
-		return boardDao.scrapBoard(uid, bid);
+		return boardDao.getBoardSearch(index, order, time, searchKeyword, searchOption);
 	}
 }

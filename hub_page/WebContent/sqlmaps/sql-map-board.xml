@@ -14,4 +14,19 @@
 		INSERTINTO scrap (uid, bid)
 		VALUES(#{uid}, #{bid})
 	</insert>
+	<select id="getBoardSearch" parameterType="map" resultType="board.vo.BoardVO">
+		select *
+		from commu
+		<if test="searchOption.equals('titleSearch') ">
+		where title like CONCAT('%',#{searchKeyword},'%')
+		</if>
+		
+		<if test="searchOption.equals('contentSearch')">
+		where content like CONCAT('%',#{searchKeyword},'%')
+		</if>
+		
+		<if test="searchOption.equals('titleContentSearch')">
+		where title like CONCAT('%',#{searchKeyword},'%') || content like CONCAT('%',#{searchKeyword},'%')
+		</if>		
+	</select>
 </mapper>

@@ -25,10 +25,8 @@
 			var url = unescape(location.href);
 			var paramArr = (url.substring(url.indexOf("?") + 1, url.length))
 					.split("&");
-
 			for (var i = 0; i < paramArr.length; i++) {
 				var temp = paramArr[i].split("=");
-
 				if (temp[0].toUpperCase() == param.toUpperCase()) {
 					requestParam = paramArr[i].split("=")[1];
 					break;
@@ -40,8 +38,12 @@
 
 	$(function() {
 		var request = new Request();
-		order = request.getParameter("order");
-		time = request.getParameter("time");
+		if (request.getParameter("order") != null
+				&& request.getParameter("time") != 0) {
+			order = request.getParameter("order");
+			time = request.getParameter("time");
+		}
+
 		$(window).scroll(function() {
 			var sh = $(window).scrollTop() + $(window).height();
 			var dh = $(document).height();
@@ -72,10 +74,11 @@
 		$(document).on('click', '.scrap', function() {
 			location.href = "scrap.do?uid="
 		})
+
 	});
 </script>
-
-<title>board.jsp</title>
+<head>
+<title>The Hub Factory</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/include/header.jsp"></jsp:include>
@@ -85,16 +88,31 @@
 	<input type="button" class="button1" value="클리앙" />
 	<br />
 
-	<button class="button1 order" value="hits">조회수</button>
-	<button class="button1 order" value="commentCnt">댓글수</button>
-	<button class="button1 order" value="date">최신</button>
+	<button class="button order" value="hits">조회수</button>
+	<button class="button order" value="commentCnt">댓글수</button>
+	<button class="button order" value="date">최신</button>
 	<br />
 
-	<button class="button1 time" value="3">3시간전</button>
-	<button class="button1 time" value="6">6시간전</button>
-	<button class="button1 time" value="12">12시간전</button>
-	<button class="button1 time" value="24">24시간전</button>
+	<button class="button time" value="3">3시간전</button>
+	<button class="button time" value="6">6시간전</button>
+	<button class="button time" value="12">12시간전</button>
+	<button class="button time" value="24">24시간전</button>
+	<br />
 	<div></div>
+
+	<form action="boardSearch.do" method="post" name="searchForm">
+		<select name="searchOption">
+			<option value="titleSearch">검색 방법 선택</option>
+			<option value="titleSearch">제목</option>
+			<option value="contentSearch">내용</option>
+			<option value="titleContentSearch">제목+내용</option>
+		</select> <input type="text" size="40" name="searchKeyword" id="searchKeyword"
+			minlength="2" maxlength="10" required="required" /> <input
+			type="hidden" value=0 name="index"> <input type="hidden"
+			value="" name="order"> <input type="hidden" value=24
+			name="time"> <input type="submit" value="글검색" id="search">
+	</form>
+
 	<c:forEach var="board" items="${requestScope.list }">
 		<div class="qa-message-list" id="wallmessages">
 			<div class="message-item" id="m16">

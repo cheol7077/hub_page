@@ -8,5 +8,5 @@ import board.vo.BoardVO;
 
 public interface BoardDAO {
 	public List<BoardVO> getBoardList(@Param("index") int index, @Param("order") String order, @Param("time") int time);
-	public int scrapBoard(@Param("uid") int uid, @Param("bid") int bid);
+	public List<BoardVO> getBoardSearch(@Param("index") int index, @Param("order") String order, @Param("time") int time ,@Param("searchKeyword") String keyword, @Param("searchOption") String searchOption);
 }

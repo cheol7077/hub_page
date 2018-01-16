@@ -40,10 +40,8 @@ public class MemberController {
 	public String login(@RequestParam("userID") String userID, @RequestParam("password") String password,
 			HttpSession session) {
 		int check = memberService.checkMember(userID, password);
-
-		if (check != 0) {
+		if (check != 0)
 			session.setAttribute("sessionId", userID);
-		}
 		
 		return initBoard;
 	}
