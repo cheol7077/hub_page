@@ -154,6 +154,9 @@
 							%>
 						</div>
 					</div>
+
+					<a href="${board.url }" onclick='window.open(this.href, "new","width=700, height=800");return false;' class="boardurl">${board.content }</a>
+
 				</div>
 			</div>
 		</div>
