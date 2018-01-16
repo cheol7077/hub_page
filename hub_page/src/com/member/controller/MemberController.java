@@ -13,7 +13,7 @@ import com.member.vo.MemberVO;
 
 @Controller
 public class MemberController {
-	final String initBoard = "redirect:/board.do?index=0&order=hits&time=3";
+	final String initBoard = "redirect:/board.do?index=0&order=hits&time=3&site=total";
 
 	@Autowired
 	MemberService memberService;
