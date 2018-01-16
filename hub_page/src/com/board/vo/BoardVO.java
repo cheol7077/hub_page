@@ -1,4 +1,4 @@
-package board.vo;
+package com.board.vo;
 
 public class BoardVO {
 	private int id;

@@ -1,4 +1,4 @@
-package member.controller;
+package com.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import member.service.MemberService;
-import member.vo.MemberVO;
+import com.member.service.MemberService;
+import com.member.vo.MemberVO;
 
 @Controller
 public class MemberController {

@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.rog//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="member.dao.MemberDAO">
-	<insert id="insertMember" parameterType="member.vo.MemberVO">
+<mapper namespace="com.member.dao.MemberDAO">
+	<insert id="insertMember" parameterType="com.member.vo.MemberVO">
 		INSERT INTO member (userID, password)
 		VALUES(#{userID}, #{password})
 	</insert>
-	<select id="getMember" parameterType="String" resultType="member.vo.MemberVO">
+	<select id="getMember" parameterType="String" resultType="com.member.vo.MemberVO">
 		SELECT *
 		FROM member
 		WHERE userID = #{userID}
@@ -17,5 +17,10 @@
 		FROM member
 		WHERE userID = #{userID}
 		AND password = #{password}
+	</select>
+	<select id="getId" parameterType="String" resultType="int">
+		SELECT id
+		FROM member
+		WHERE userID = #{userId}
 	</select>
 </mapper>

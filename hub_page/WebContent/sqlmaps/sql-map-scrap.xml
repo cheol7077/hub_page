@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.rog//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scrap.dao.ScrapDAO">
+	<insert id="scrapBoard" parameterType="map">
+		INSERT INTO scrap (uid, bid)
+		VALUES(#{uid}, #{bid})
+	</insert>
+	<select id="checkScrap" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM scrap
+		WHERE uid = #{uid}
+		AND bid = #{bid}
+	</select>
+	<select id="getBoardList" parameterType="int" resultType="com.board.vo.BoardVO">
+		SELECT c.title, c.content, c.date, c.url, c.hits, c.commentCnt, c.communityID
+		FROM scrap s, commu c
+		WHERE s.bid = c.id
+		AND s.uid = #{uid};
+	</select>
+</mapper>

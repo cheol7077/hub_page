@@ -72,9 +72,23 @@
 		})
 
 		$(document).on('click', '.scrap', function() {
-			location.href = "scrap.do?uid="
+			$.ajax({
+				url : 'scrap.do',
+				data : {
+					bid : $(this).val()
+				},
+				success : function(data) {
+					if (data != -1)
+						alert(data + '번 게시물 스크랩하였습니다')
+					else
+						alert('이미 추가하였습니다')
+				}
+			})
 		})
-
+		
+		$('#test').click(function(){
+			location.href="test.do"
+		})
 	});
 </script>
 <head>

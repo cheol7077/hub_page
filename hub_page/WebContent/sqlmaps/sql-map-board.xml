@@ -2,19 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.rog//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="board.dao.BoardDAO">
-	<select id="getBoardList" parameterType="map" resultType="board.vo.BoardVO">
+<mapper namespace="com.board.dao.BoardDAO">
+	<select id="getBoardList" parameterType="map" resultType="com.board.vo.BoardVO">
 		SELECT *
 		FROM commu
 		WHERE date >= date_add(now(), interval-#{time} HOUR)
 		ORDER BY ${order} desc
 		LIMIT #{index}, 10
 	</select>
-	<insert id="scrapBoard" parameterType="map">
-		INSERTINTO scrap (uid, bid)
-		VALUES(#{uid}, #{bid})
-	</insert>
-	<select id="getBoardSearch" parameterType="map" resultType="board.vo.BoardVO">
+	<select id="getBoardSearch" parameterType="map" resultType="com.board.vo.BoardVO">
 		select *
 		from commu
 		<if test="searchOption.equals('titleSearch') ">

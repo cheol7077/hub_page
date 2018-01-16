@@ -1,4 +1,4 @@
-package board.service;
+package com.board.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import board.dao.BoardDAO;
-import board.vo.BoardVO;
+import com.board.dao.BoardDAO;
+import com.board.vo.BoardVO;
 
 @Service
 public class BoardService {

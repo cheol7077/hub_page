@@ -85,6 +85,7 @@
 					} else {
 				%>
 				<a href='logout.do'>로그아웃</a>
+				<a href='scrapBoard.do'>내 스크랩</a>
 				<%
 					}
 				%>
