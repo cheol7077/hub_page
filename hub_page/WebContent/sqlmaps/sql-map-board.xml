@@ -7,9 +7,10 @@
 		SELECT *
 		FROM commu
 		WHERE date >= date_add(now(), interval-#{time} HOUR)
-		<if test="site != 'total'">
-			AND communityID =#{site}
-		</if>
+		AND communityID IN
+		<foreach collection="siteList" item="site" open="(" close=")" separator=",">
+			#{site}
+		</foreach>
 		ORDER BY ${order} desc
 		LIMIT #{index}, 10
 	</select>
