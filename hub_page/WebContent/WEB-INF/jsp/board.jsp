@@ -37,7 +37,7 @@
 		}
 	}
 	
-	$(function() {
+	$(function(){
 		var request = new Request();
 		if (request.getParameter("order") != null
 				&& request.getParameter("time") != 0) {
@@ -56,14 +56,15 @@
 					data : {
 						index : index,
 						order : order,
-						time : time
+						time : time,
+						site : site
 					},
 					success : function(data) {
 						$('body').append(data);
 					}
 				})
 			}
-		});
+		})
 
 		$('.order').click(function() {
 			location.href = "board.do?index=0&order=" + $(this).val() + "&time=" + time +"&site=" + site
@@ -167,5 +168,8 @@
 			</div>
 		</div>
 	</c:forEach>
+
 </body>
+
+
 </html>
