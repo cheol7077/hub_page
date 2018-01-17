@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,34 +21,30 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 
+	@RequestMapping("/main.do")
+	public void main() {
+		
+	}
+
 	@RequestMapping("/board.do")
-	public String board(@RequestParam("index") int index, @RequestParam("order") String order, @RequestParam("time") int time, @RequestParam("site") String site,
-			HttpServletRequest request) {
-		System.out.println("index = " + index + " order = " + order + " time = " +time + " site = " +site);
-		List<BoardVO> list = boardService.getBoardList(index, order, time,site);
-		
-		list = c.conversion(list);
-		
-		request.setAttribute("list", list);
-	    
-		if (index == INIT)
-			return "board";
-		else
-			return "boardAdd";
+	public String board(@RequestParam("index") int index, @RequestParam("order") String order,
+			@RequestParam("time") int time, @RequestParam(value = "siteList[]") List<String> siteList, Model model) {
+		List<BoardVO> boardList = boardService.getBoardList(index, order, time, siteList);
+		boardList = c.conversion(boardList);
+		model.addAttribute("boardList", boardList);
+		return "boardAdd";
 	}
 
 	@RequestMapping("/boardSearch.do")
-	public String boardSearch(@RequestParam("index") int index, @RequestParam("order") String order, @RequestParam("time") int time,
-			@RequestParam("searchKeyword") String searchKeyword,@RequestParam("searchOption") String searchOption, HttpServletRequest request) {
-		List<BoardVO> list = boardService.getBoardSearch(index, order, time, searchKeyword, searchOption);
-		
-		list = c.conversion(list);
-		
-		request.setAttribute("list", list);
-	    
-		if (index == INIT)
-			return "board";
-		else
-			return "boardAdd";
+
+	public String boardSearch(@RequestParam("index") int index, @RequestParam("order") String order,
+			@RequestParam("time") int time, @RequestParam("searchKeyword") String searchKeyword,
+			@RequestParam("searchOption") String searchOption, Model model) {
+		List<BoardVO> boardList = boardService.getBoardSearch(index, order, time, searchKeyword, searchOption);
+
+		boardList = c.conversion(boardList);
+		model.addAttribute("boardList", boardList);
+
+		return "boardAdd";
 	}
 }

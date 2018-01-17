@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -79,8 +79,6 @@
 			}
 		})
 		
-	
-		<!-- 화며분할-->
 	 	$('.boardurl').click(function() {
 			var url = $(this).attr('href'); 
 		
@@ -133,7 +131,7 @@
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/include/header.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/jsp/main.jsp"></jsp:include>
 
 <div class="iframe1"style="float: left; width: 40%;">
 	<div></div>
@@ -194,8 +192,8 @@
 					</div>
 					
 					<a class="boardurl" href="${board.url }" >${board.thumbnail }</a>
-				<%-- 		<a href="${board.url }" onclick='window.open(this.href, "new","width=700, height=800");return false;' class="boardurl">${board.thumbnail }</a>
-				 --%><!-- 
+						<a href="${board.url }" onclick='window.open(this.href, "new","width=700, height=800");return false;' class="boardurl">${board.thumbnail }</a>
+				<!-- 
 				 onclick='frameopen(this.href)' -->
 				</div>
 			</div>
@@ -211,3 +209,4 @@
 
 
 </html>
+ --%>

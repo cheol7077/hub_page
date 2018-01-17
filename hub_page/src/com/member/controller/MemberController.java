@@ -13,8 +13,6 @@ import com.member.vo.MemberVO;
 
 @Controller
 public class MemberController {
-	final String initBoard = "redirect:/board.do?index=0&order=hits&time=3&site=total";
-
 	@Autowired
 	MemberService memberService;
 
@@ -27,7 +25,7 @@ public class MemberController {
 	public String signup(MemberVO mv) {
 		memberService.insertMember(mv);
 
-		return initBoard;
+		return "main";
 	}
 
 	@RequestMapping("/memberCheck.do")
@@ -43,12 +41,12 @@ public class MemberController {
 		if (check != 0)
 			session.setAttribute("sessionId", userID);
 		
-		return initBoard;
+		return "main";
 	}
 	
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return initBoard;
+		return "main";
 	}
 }
