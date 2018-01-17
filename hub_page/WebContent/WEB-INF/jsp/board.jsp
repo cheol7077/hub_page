@@ -36,16 +36,15 @@
 			return requestParam;
 		}
 	}
-	
+
 	$(function() {
 		var request = new Request();
 		if (request.getParameter("order") != null
-				&& request.getParameter("time") != 0) {
+				&& request.getParameter("time") != 0 && request.getParameter("site") != null) {
 			order = request.getParameter("order");
 			time = request.getParameter("time");
 			site = request.getParameter("site")
 		}
-
 		$(window).scroll(function() {
 			var sh = $(window).scrollTop() + $(window).height();
 			var dh = $(document).height();
@@ -56,14 +55,15 @@
 					data : {
 						index : index,
 						order : order,
-						time : time
+						time : time,
+						site : site
 					},
 					success : function(data) {
 						$('body').append(data);
 					}
 				})
 			}
-		});
+		})
 
 		$('.order').click(function() {
 			location.href = "board.do?index=0&order=" + $(this).val() + "&time=" + time +"&site=" + site
@@ -90,39 +90,33 @@
 
 		$('.site').click(function() {
 			location.href = "board.do?index=0&order=" + order + "&time=" + time + "&site=" + $(this).val()
-		}) 
-		
-		
-		
+		})
 	});
 </script>
-
 <head>
 <title>The Hub Factory</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/include/header.jsp"></jsp:include>
 	<div></div>
- 	<button class="button site" value="c1">전체</button>
+	<button class="button site" value="c1">전체</button>
 	<button class="button site" value="c1">FM코리아</button>
 	<button class="button site" value="c2">뽐뿌</button>
 	<button class="button site" value="c3">웃긴대학</button>
-	<button class="button site" value="c4">루리웹</button> 
-	
+	<button class="button site" value="c4">루리웹</button>
 	<br />
 
-	 <button class="button order" value="hits">조회수</button>
+	<button class="button order" value="hits">조회수</button>
 	<button class="button order" value="commentCnt">댓글수</button>
 	<button class="button order" value="date">최신</button>
-	<br /> 
+	<br />
 
 	<button class="button time" value="3">3시간전</button>
 	<button class="button time" value="6">6시간전</button>
 	<button class="button time" value="12">12시간전</button>
 	<button class="button time" value="24">24시간전</button>
-	<br /> 
+	<br />
 	<div></div>
-</form>
 
 	<form action="boardSearch.do" method="post" name="searchForm">
 		<select name="searchOption">
@@ -161,8 +155,7 @@
 						</div>
 					</div>
 
-					<a href="${board.url }" onclick='window.open(this.href, "new","width=700, height=800");return false;' class="boardurl">${board.content }</a>
-
+					<a href="${board.url }" onclick='window.open(this.href, "new","width=700, height=800");return false;' class="boardurl">${board.thumbnail }</a>
 				</div>
 			</div>
 		</div>
