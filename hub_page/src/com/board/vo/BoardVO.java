@@ -9,6 +9,15 @@ public class BoardVO {
 	private int hits;
 	private int commentCnt;
 	private String communityID;
+	private String thumbnail = "사진이 없습니다";
+	
+	public String getThumbnail() {
+		return thumbnail;
+	}
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+	
 	public int getId() {
 		return id;
 	}
