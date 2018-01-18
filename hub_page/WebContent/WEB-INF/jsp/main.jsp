@@ -16,7 +16,9 @@
 >
 <link rel="stylesheet" href="assets/css/main.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
@@ -24,7 +26,10 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"
 ></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+>
+	
 </script>
 <title>main.jsp</title>
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -67,11 +72,11 @@
 			parameters.siteList.push($(this).val())
 			check = true
 		})
-		
-		if(!check){
-			parameters.siteList=['null']
+
+		if (!check) {
+			parameters.siteList = [ 'null' ]
 		}
-		
+
 		boardView()
 	}
 
@@ -109,7 +114,7 @@
 			$('.site').prop('checked', true)
 			selectSite()
 		})
-		
+
 		$(document).on('click', '.scrap', function() {
 			$.ajax({
 				url : 'scrap.do',
@@ -124,33 +129,36 @@
 				}
 			})
 		})
-		
-		$('#scrapBoard').click(function(){
-			parameters.index=0
+
+		$('#scrapBoard').click(function() {
+			parameters.index = 0
 		})
 
 		document.getElementById('submit').onclick = function() {
 			var userID = $('#userID').val();
 			var password = $('#password').val()
-			
-			if(check_flag == 0) {
+
+			if (check_flag == 0) {
 				alert('중복체크하세요!')
 				return
+
 			}
-			
-			if(password == "") {
+
+			if (password == "") {
 				alert('비밀번호 입력하세요!')
 				return
+
 			}
-			
-			if(password != $('#passwordCheck').val()) {
+
+			if (password != $('#passwordCheck').val()) {
 				alert("비밀번호가 일치하지않습니다!")
 				return
+
 			}
-				
+
 			location = 'signup.do?userID=' + userID + '&password=' + password;
 		}
-		
+
 		document.getElementById('check').onclick = function() {
 			$.ajax({
 				url : 'memberCheck.do',
@@ -158,7 +166,7 @@
 					userID : document.getElementById('userID').value
 				},
 				success : function(data) {
-					if($.trim(data) != id_check)
+					if ($.trim(data) != id_check)
 						check_flag = 1
 					else
 						check_flag = 0
@@ -166,9 +174,10 @@
 				}
 			})
 		}
-		
+
 		document.getElementById('login').onclick = function() {
-			location.href = "login.do?userID=" + $('#loginId').val() + "&password=" + $('#loginPw').val()
+			location.href = "login.do?userID=" + $('#loginId').val()
+					+ "&password=" + $('#loginPw').val()
 		}
 	})
 </script>
@@ -200,9 +209,7 @@
 			<div id="header">
 				<!-- Logo -->
 				<h1 class="w3-container w3-center w3-animate-left">
-					<!-- <a href="index.html"> -->
-					THE HUB FACTORY
-					</a>
+					<a href="index.html"> THE HUB FACTORY </a>
 				</h1>
 				<button id="total">전체</button>
 				<input type="checkbox" id="fm" class="site" value="c1"
