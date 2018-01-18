@@ -10,10 +10,10 @@
 <link href="css/view.css" rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<title>Insert title here</title>
+<title>scrapBoard.jsp</title>
 </head>
 <body>
-	<c:forEach var="board" items="${requestScope.list }">
+	<c:forEach var="board" items="${boardList}">
 		<div class="qa-message-list" id="wallmessages">
 			<div class="message-item" id="m16">
 				<div class="message-inner">
@@ -27,13 +27,6 @@
 							<h5 class="handle">${board.title }</h5>
 							<h4 class="handle">조회수:${board.hits } 댓글수:${board.commentCnt }
 								날짜:${board.date }</h4>
-							<%
-								if (session.getAttribute("sessionId") != null) {
-							%>
-							<button class="scrap" value="${board.id}">스크랩</button>
-							<%
-								}
-							%>
 							<div class="post-meta">
 								<div class="asker-meta">
 									<span class="qa-message-what"></span> <span
