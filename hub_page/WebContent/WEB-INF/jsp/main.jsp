@@ -31,11 +31,14 @@
 
 
 <script>
-	var parameters = {
+var parameters = {
 		index : 0,
 		order : 'hits',
 		time : 24,
 		siteList : [ 'c1', 'c2', 'c3', 'c4' ],
+		searchKeyword : "",
+		searchOption : "titleContentSearch"
+		
 	}
 /* 
 	var id_check = "중복!"
@@ -49,16 +52,43 @@
 				index : parameters.index,
 				order : parameters.order,
 				time : parameters.time,
-				siteList : parameters.siteList
+				siteList : parameters.siteList,
+				searchKeyword : parameters.searchKeyword,
+				searchOption : parameters.searchOption
 			},
 			success : function(data) {
 				if (parameters.index == 0)
 					$('#board').html(data)
 				else
 					$('#board').append(data)
+					
+				if(parameters.searchKeyword != "")
+					$('#searchResult').html(parameters.searchKeyword+" 검색 결과")
+				else
+					$('#searchResult').html("")
+				
 			}
 		})
 	}
+	
+	function search(){
+		var formData = new FormData(document.getElementById('searchForm'));
+		parameters.searchKeyword = formData.get("searchKeyword")
+		parameters.searchOption = formData.get("searchOption")
+		if(parameters.searchKeyword.length<2){
+			alert("검색어는 2자 이상 입력해 주세요")
+			return false
+		}
+		boardView()
+		document.getElementById("searchKeyword").value = "";
+	}
+	
+	function enterkey() {
+        if (window.event.keyCode == 13) {
+        	search();
+        }
+	}
+	
 
 	function selectSite() {
 		var check = false
@@ -86,7 +116,16 @@
 				boardView()
 			}
 		})
-
+		
+		$('.init').click(function() {
+			parameters.index = 0
+			parameters.order = 'hits'
+			parameters.siteList = [ 'c1', 'c2', 'c3', 'c4' ]
+			parameters.searchKeyword = ""
+			parameters.searchOption = "titleContentSearch"
+			boardView()
+		})
+		
 		$('.order').click(function() {
 			parameters.index = 0
 			parameters.order = $(this).val()
@@ -108,6 +147,10 @@
 			parameters.index = 0
 			$('.site').prop('checked', true)
 			selectSite()
+		})
+		
+		$('#search').click(function() {
+			search();
 		})
 		
 		$(document).on('click', '.scrap', function() {
@@ -221,7 +264,8 @@
 				> <label for="univ">웃대</label> <input type="checkbox" id="ruliweb"
 					class="site" value="c4" checked="checked"
 				> <label for="ruliweb">루리웹</label><br />
-
+				
+				<button class="button init" value="init">초기화</button>
 				<button class="button order" value="hits">조회수</button>
 				<button class="button order" value="commentCnt">댓글수</button>
 				<button class="button order" value="date">최신</button>
@@ -232,8 +276,8 @@
 				<button class="button time" value="24">24시간전</button>
 				<br />
 				<div></div>
-				<form action="boardSearch.do" method="post" name="searchForm">
-					<select name="searchOption">
+				<form method="get" name ="searchForm" id = "searchForm" onsubmit="return false">
+					<select name="searchOption" id = "searchOption">
 						<option value="titleSearch">검색 방법 선택</option>
 						<option value="titleSearch">제목</option>
 						<option value="contentSearch">내용</option>
@@ -241,12 +285,18 @@
 					</select>
 					<input type="text" size="40" name="searchKeyword"
 						id="searchKeyword" minlength="2" maxlength="10"
-						required="required"
-					/> <input type="hidden" value=0 name="index"> <input
-						type="hidden" value="" name="order"
-					> <input type="hidden" value=24 name="time"> <input
-						type="submit" value="글검색" id="search"
-					>
+						required="required" onkeyup="enterkey();"
+					/>
+					<input type="hidden" value=0 name="index" id = "index">
+					<input type="hidden" value="hits" name="order" id="order">
+					<input type="hidden" value="24" name="time" id="time">
+					<input type="hidden" value="c1" name="siteList[]"  id = "siteList[]">
+					<input type="hidden" value="c2" name="siteList[]" >
+					<input type="hidden" value="c3" name="siteList[]" >
+					<input type="hidden" value="c4" name="siteList[]" >
+					<input type="button" value="글검색" name="search" id="search" >
+					<br/>
+					<b id = "searchResult"></b>
 				</form>
 				<!-- 	<p>A responsive template by HTML5 UP</p>-->
 				</header>

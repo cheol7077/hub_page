@@ -23,27 +23,20 @@ public class BoardController {
 
 	@RequestMapping("/main.do")
 	public void main() {
-		
 	}
 
 	@RequestMapping("/board.do")
-	public void board(@RequestParam("index") int index, @RequestParam("order") String order,
-			@RequestParam("time") int time, @RequestParam(value = "siteList[]") List<String> siteList, Model model) {
-		List<BoardVO> boardList = boardService.getBoardList(index, order, time, siteList);
+	public String board(@RequestParam("index") int index, @RequestParam("order") String order,
+			@RequestParam("time") int time,@RequestParam("searchKeyword") String searchKeyword,
+			@RequestParam("searchOption") String searchOption, @RequestParam(value = "siteList[]") List<String> siteList, Model model) {
+		List<BoardVO> boardList = boardService.getBoardList(index, order, time,searchKeyword,searchOption, siteList);
 		boardList = c.conversion(boardList);
 		model.addAttribute("boardList", boardList);
-	}
-
-	@RequestMapping("/boardSearch.do")
-
-	public String boardSearch(@RequestParam("index") int index, @RequestParam("order") String order,
-			@RequestParam("time") int time, @RequestParam("searchKeyword") String searchKeyword,
-			@RequestParam("searchOption") String searchOption, Model model) {
-		List<BoardVO> boardList = boardService.getBoardSearch(index, order, time, searchKeyword, searchOption);
-
-		boardList = c.conversion(boardList);
-		model.addAttribute("boardList", boardList);
-
+		
+		System.out.println("searchKeyword : " + searchKeyword);
+		System.out.println("time : " + time);
+		
 		return "board";
 	}
+
 }
