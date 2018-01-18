@@ -3,31 +3,33 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.board.dao.BoardDAO">
-	<select id="getBoardList" parameterType="map" resultType="com.board.vo.BoardVO">
-		SELECT *
-		FROM commu
-		WHERE date >= date_add(now(), interval-#{time} HOUR)
-		AND communityID IN
-		<foreach collection="siteList" item="site" open="(" close=")" separator=",">
-			#{site}
-		</foreach>
-		ORDER BY ${order} desc
-		LIMIT #{index}, 10
-	</select>
-	<select id="getBoardSearch" parameterType="map" resultType="com.board.vo.BoardVO">
-		select *
-		from commu
-		<if test="searchOption.equals('titleSearch') ">
-			where title like CONCAT('%',#{searchKeyword},'%')
-		</if>
-
-		<if test="searchOption.equals('contentSearch')">
-			where content like CONCAT('%',#{searchKeyword},'%')
-		</if>
-
-		<if test="searchOption.equals('titleContentSearch')">
-			where title like CONCAT('%',#{searchKeyword},'%') || content like
-			CONCAT('%',#{searchKeyword},'%')
-		</if>
-	</select>
+   <select id="getBoardList" parameterType="map" resultType="com.board.vo.BoardVO">
+      SELECT *
+      FROM commu
+      WHERE date >= date_add(now(), interval-#{time} HOUR)
+      AND communityID IN
+      <foreach collection="siteList" item="site" open="(" close=")" separator=",">
+         #{site}
+      </foreach>
+      <include refid="search"/>
+      ORDER BY ${order} desc
+      LIMIT #{index}, 10
+   </select>
+   
+   <sql id = "search">
+   <if test="!searchKeyword.equals('') ">
+      <if test="searchOption.equals('titleSearch') ">
+         and title like CONCAT('%',#{searchKeyword},'%')
+      </if>
+      
+      <if test="searchOption.equals('contentSearch')">
+         and content like CONCAT('%',#{searchKeyword},'%')
+      </if>
+      
+      <if test="searchOption.equals('titleContentSearch')">
+         and title like CONCAT('%',#{searchKeyword},'%') || content like
+         CONCAT('%',#{searchKeyword},'%')
+      </if>
+   </if>
+      </sql>
 </mapper>
