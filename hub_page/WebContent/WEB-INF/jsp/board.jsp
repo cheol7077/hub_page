@@ -28,7 +28,8 @@ $(function() {
 });
  
 </script>
-<div>
+<div class="iframe1"style="float: left; width: 33%;">
+
 <c:forEach var="board" items="${boardList}">
 	<div class="qa-message-list" id="wallmessages">
 		<div class="message-item" id="m16">
@@ -38,7 +39,7 @@ $(function() {
 						<img src="cp/${board.communityID }.png" />
 					</div>
 					<div class="user-detail">
-						<a href="${board.url }"class="boardurl">${board.title}</a>
+						<a href="${board.url }" class="boardurl">${board.title}</a>
 						
 						<h4 class="handle">조회수:${board.hits } 댓글수:${board.commentCnt }
 							날짜:${board.date }</h4>
