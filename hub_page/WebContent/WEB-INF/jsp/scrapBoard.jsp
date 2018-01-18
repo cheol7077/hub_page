@@ -59,7 +59,7 @@ $(function() {
 						<a href="${board.url }" class="boardurl">${board.title}</a>
 						</div>
 						</div>
-<h4 class="handle" style="font-size:12px;">조회수:${board.hits } 댓글수:${board.commentCnt }
+				<h4 class="handle" style="font-size:12px;">조회수:${board.hits } 댓글수:${board.commentCnt }
 								날짜:${board.date }</h4>
 
 					<div class="qa-message-content">${board.thumbnail }</div>
