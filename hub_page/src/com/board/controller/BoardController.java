@@ -23,6 +23,7 @@ public class BoardController {
 
 	@RequestMapping("/main.do")
 	public void main() {
+		
 	}
 
 	@RequestMapping("/board.do")

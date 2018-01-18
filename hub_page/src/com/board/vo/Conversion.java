@@ -18,8 +18,8 @@ public class Conversion {
 			for(int j=0; j<contents.length; j++) {
 			contents[j] = contents[j].replace("::","");
 			
-			if(contents[j].startsWith("https:https")) {
-				contents[j] = contents[j].replace("https:https:", "https:");
+			if(contents[j].startsWith("http:http")) {
+				contents[j] = contents[j].replace("http:http:", "http:");
 			}
 			
 			if(contents[j].startsWith("http")&&((contents[j].endsWith("jpg")||(contents[j].endsWith("bmp"))||(contents[j].endsWith("gif"))||(contents[j].endsWith("png"))||(contents[j].endsWith("jpeg"))
