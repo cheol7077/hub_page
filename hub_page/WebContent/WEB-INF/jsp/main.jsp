@@ -37,9 +37,9 @@
 		time : 24,
 		siteList : [ 'c1', 'c2', 'c3', 'c4' ]
 	}
-
+/* 
 	var id_check = "중복!"
-	var check_flag = 0
+	var check_flag = 0 */
 
 	function boardView() {
 		$.ajax({
@@ -125,7 +125,7 @@
 			})
 		})
 
-		document.getElementById('submit').onclick = function() {
+/* 		document.getElementById('submit').onclick = function() {
 			var userID = $('#userID').val();
 			var password = $('#password').val()
 			
@@ -165,7 +165,7 @@
 		
 		document.getElementById('login').onclick = function() {
 			location.href = "login.do?userID=" + $('#loginId').val() + "&password=" + $('#loginPw').val()
-		}
+		} */
 	})
 </script>
 
@@ -174,7 +174,9 @@
 	<div id="page-wrapper">
 		<!-- Header -->
 		<div id="header-wrapper">
-			<div class="user" style="background-color: #FDE9DF;">
+
+
+			<%-- <div class="user" style="background-color: #FDE9DF;">
 				<%
 					if (session.getAttribute("sessionId") == null) {
 				%>
@@ -191,13 +193,16 @@
 				<%
 					}
 				%>
-			</div>
+			</div> --%>
 			<div id="header">
+			<jsp:include page="/WEB-INF/jsp/header.jsp" flush="false"/>
 				<!-- Logo -->
-				<h1 class="w3-container w3-center w3-animate-left">
-					<!-- <a href="index.html"> -->
+	<!-- 			<h1 class="w3-container w3-center w3-animate-left">
+					<a href="index.html">
 					THE HUB FACTORY</a>
-				</h1>
+				</h1> -->
+				
+				</div>
 				<button id="total">전체</button>
 				<input type="checkbox" id="fm" class="site" value="c1"
 					checked="checked"
@@ -247,8 +252,8 @@
 				</section>
 			</div>
 		</div>
-	</div>
-	<!-- JOIN Modal -->
+
+	<!-- <!-- JOIN Modal 
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true"
 	>
@@ -297,7 +302,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- LOginModal -->
+	LOginModal
 	<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true"
 	>
@@ -342,7 +347,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<div id="board"></div>
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
