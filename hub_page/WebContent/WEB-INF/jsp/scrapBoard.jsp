@@ -10,6 +10,7 @@
 <link href="css/view.css" rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <!-- 스크랩 2분할 -->
 <script>
 $(function() {
@@ -33,44 +34,36 @@ $(function() {
  
 </script>
 <title>Insert title here</title>
+
+<title>scrapBoard.jsp</title>
+
 </head>
 <body>
-<%-- <jsp:include page="/WEB-INF/jsp/main.jsp" flush="true">
-</jsp:include> --%>
+
 			<jsp:include page="/WEB-INF/jsp/header.jsp" flush="false"/>
 
 <div class="iframe1"style="float: left; width: 33%;">
-	<c:forEach var="board" items="${requestScope.list }">
+<%-- 	<c:forEach var="board" items="${requestScope.list }"> --%>
+
+	<c:forEach var="board" items="${boardList}">
+
 		<div class="qa-message-list" id="wallmessages">
 			<div class="message-item" id="m16">
 				<div class="message-inner">
 					<div class="message-head clearfix">
 						<div class="avatar pull-left">
-							${board.thumbnail }
+							<img src="cp/${board.communityID }.png" />
 						</div>
+						
 						<div class="user-detail">
 						<a href="${board.url }" class="boardurl">${board.title}</a>
 						</div>
 						</div>
-	<div class="qa-message-content"><h4 class="handle" style="font-size:12px;">조회수:${board.hits } 댓글수:${board.commentCnt }
+<h4 class="handle" style="font-size:12px;">조회수:${board.hits } 댓글수:${board.commentCnt }
 								날짜:${board.date }</h4>
-							</div>
-				<%-- 			<div class="post-meta">
-								<div class="asker-meta">
-									<span class="qa-message-what"></span> <span
-										class="qa-message-when"><i
-										class="glyphicon glyphicon-time"></i><span
-										class="qa-message-when-data">${board.date }</span> </span> <span
-										class="qa-message-who"> <span
-										class="qa-message-who-pad">by </span> <span
-										class="qa-message-who-data"><a
-											href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko">${board.hits }</a></span>
-									</span>
-								</div>
-							</div> --%>
-					<%-- 
-				
-					<div class="qa-message-content">${board.content }</div> --%>
+
+					<div class="qa-message-content">${board.thumbnail }</div>
+			
 				</div>
 			</div>
 		</div>

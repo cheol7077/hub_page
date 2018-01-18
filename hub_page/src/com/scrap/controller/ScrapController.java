@@ -36,11 +36,11 @@ public class ScrapController {
 	}
 	
 	@RequestMapping("/scrapBoard.do")
-	public void scrapBoard(HttpSession session, HttpServletRequest request) {
+	public void scrapBoard(HttpSession session, Model model) {
 		String userId = (String) session.getAttribute("sessionId");
 		int uid = memberService.getId(userId);
-		List<BoardVO> list = scrapService.getBoardList(uid);
+		List<BoardVO> boardList = scrapService.getBoardList(uid);
 		
-		request.setAttribute("list", list);
+		model.addAttribute("boardList", boardList);
 	}
 }

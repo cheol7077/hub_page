@@ -35,7 +35,7 @@
 		index : 0,
 		order : 'hits',
 		time : 24,
-		siteList : [ 'c1', 'c2', 'c3', 'c4' ]
+		siteList : [ 'c1', 'c2', 'c3', 'c4' ],
 	}
 /* 
 	var id_check = "중복!"
@@ -124,6 +124,10 @@
 				}
 			})
 		})
+		
+		$('#scrapBoard').click(function(){
+			parameters.index=0
+		})
 
 /* 		document.getElementById('submit').onclick = function() {
 			var userID = $('#userID').val();
@@ -189,7 +193,8 @@
 				<%
 					} else {
 				%>
-				<a href='logout.do'>로그아웃</a> <a href='scrapBoard.do'>내 스크랩</a>
+				<a href='logout.do'>로그아웃</a>
+				<a href='scrapBoard.do'>내 스크랩</a>
 				<%
 					}
 				%>
@@ -197,29 +202,25 @@
 			<div id="header">
 			<jsp:include page="/WEB-INF/jsp/header.jsp" flush="false"/>
 				<!-- Logo -->
+
 	<!-- 			<h1 class="w3-container w3-center w3-animate-left">
 					<a href="index.html">
 					THE HUB FACTORY</a>
 				</h1> -->
 				
 				</div>
+
+
 				<button id="total">전체</button>
 				<input type="checkbox" id="fm" class="site" value="c1"
 					checked="checked"
-				>
-				<label for="fm">에펨코리아</label>
-				<input type="checkbox" id="ppom" class="site" value="c2"
-					checked="checked"
-				>
-				<label for="ppom">뽐뿌</label>
-				<input type="checkbox" id="univ" class="site" value="c3"
-					checked="checked"
-				>
-				<label for="univ">웃대</label>
-				<input type="checkbox" id="ruliweb" class="site" value="c4"
-					checked="checked"
-				>
-				<label for="ruliweb">루리웹</label><br />
+				> <label for="fm">에펨코리아</label> <input type="checkbox" id="ppom"
+					class="site" value="c2" checked="checked"
+				> <label for="ppom">뽐뿌</label> <input type="checkbox" id="univ"
+					class="site" value="c3" checked="checked"
+				> <label for="univ">웃대</label> <input type="checkbox" id="ruliweb"
+					class="site" value="c4" checked="checked"
+				> <label for="ruliweb">루리웹</label><br />
 
 				<button class="button order" value="hits">조회수</button>
 				<button class="button order" value="commentCnt">댓글수</button>
@@ -241,11 +242,11 @@
 					<input type="text" size="40" name="searchKeyword"
 						id="searchKeyword" minlength="2" maxlength="10"
 						required="required"
-					/>
-					<input type="hidden" value=0 name="index">
-					<input type="hidden" value="" name="order">
-					<input type="hidden" value=24 name="time">
-					<input type="submit" value="글검색" id="search">
+					/> <input type="hidden" value=0 name="index"> <input
+						type="hidden" value="" name="order"
+					> <input type="hidden" value=24 name="time"> <input
+						type="submit" value="글검색" id="search"
+					>
 				</form>
 				<!-- 	<p>A responsive template by HTML5 UP</p>-->
 				</header>
@@ -271,9 +272,7 @@
 					<table>
 						<tr>
 							<td>ID</td>
-							<td>
-								<input type="text" id="userID" />
-							</td>
+							<td><input type="text" id="userID" /></td>
 							<td>
 								<button class="btn btn-secondary" id="check">중복확인</button>
 							</td>
@@ -281,15 +280,11 @@
 						</tr>
 						<tr>
 							<td>비밀번호</td>
-							<td>
-								<input type="password" id="password" />
-							</td>
+							<td><input type="password" id="password" /></td>
 						</tr>
 						<tr>
 							<td>비밀번호 재입력</td>
-							<td>
-								<input type="password" id="passwordCheck" />
-							</td>
+							<td><input type="password" id="passwordCheck" /></td>
 						</tr>
 					</table>
 				</div>
@@ -320,19 +315,17 @@
 					<form name="input" method="post" action="">
 						<div class="input-group">
 							<span class="input-group-addon" style="width: 40px;"><i
-								class="glyphicon glyphicon-user"
-								style="font-size: 20px; color: #0881A3;"
-							></i></span>
-							<input id="loginId" type="text" class="form-control" name="id"
-								placeholder="Id"
+									class="glyphicon glyphicon-user"
+									style="font-size: 20px; color: #0881A3;"
+								></i></span> <input id="loginId" type="text" class="form-control"
+								name="id" placeholder="Id"
 							>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon" style="width: 40px;"><i
-								class="glyphicon glyphicon-lock"
-								style="font-size: 20px; color: #0881A3;"
-							></i></span>
-							<input id="loginPw" type="password" class="form-control"
+									class="glyphicon glyphicon-lock"
+									style="font-size: 20px; color: #0881A3;"
+								></i></span> <input id="loginPw" type="password" class="form-control"
 								name="password" placeholder="Password"
 							>
 						</div>

@@ -27,12 +27,11 @@ public class BoardController {
 	}
 
 	@RequestMapping("/board.do")
-	public String board(@RequestParam("index") int index, @RequestParam("order") String order,
+	public void board(@RequestParam("index") int index, @RequestParam("order") String order,
 			@RequestParam("time") int time, @RequestParam(value = "siteList[]") List<String> siteList, Model model) {
 		List<BoardVO> boardList = boardService.getBoardList(index, order, time, siteList);
 		boardList = c.conversion(boardList);
 		model.addAttribute("boardList", boardList);
-		return "boardAdd";
 	}
 
 	@RequestMapping("/boardSearch.do")
@@ -45,6 +44,6 @@ public class BoardController {
 		boardList = c.conversion(boardList);
 		model.addAttribute("boardList", boardList);
 
-		return "boardAdd";
+		return "board";
 	}
 }

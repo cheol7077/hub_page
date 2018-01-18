@@ -106,7 +106,7 @@ $(function() {
 				<!-- Logo -->
 				<h1 class="w3-container w3-center w3-animate-left">
 					<!-- <a href="index.html"> -->
-					THE HUB FACTORY</a>
+					THE HUB FACTORY
 				</h1>
 				</div>
 	<!-- 			</div>
