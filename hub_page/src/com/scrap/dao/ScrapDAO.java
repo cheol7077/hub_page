@@ -10,4 +10,5 @@ public interface ScrapDAO {
 	public int scrapBoard(@Param("uid") int uid, @Param("bid") int bid);
 	public int checkScrap(@Param("uid") int uid, @Param("bid") int bid);
 	public List<BoardVO> getBoardList(@Param("uid") int uid);
+	public int deleteScrap(@Param("uid") int uid, @Param("bid") int bid);
 }

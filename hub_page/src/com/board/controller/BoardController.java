@@ -14,7 +14,6 @@ import com.board.vo.Conversion;
 
 @Controller
 public class BoardController {
-	final int INIT = 0;
 	Conversion c = new Conversion();
 	@Autowired
 	BoardService boardService;
@@ -25,11 +24,11 @@ public class BoardController {
 
 	@RequestMapping("/board.do")
 	public void board(@RequestParam("index") int index, @RequestParam("order") String order,
-			@RequestParam("time") int time,@RequestParam("searchKeyword") String searchKeyword,
-			@RequestParam("searchOption") String searchOption, @RequestParam(value = "siteList[]") List<String> siteList, Model model) {
-		List<BoardVO> boardList = boardService.getBoardList(index, order, time,searchKeyword,searchOption, siteList);
+			@RequestParam("time") int time, @RequestParam("searchKeyword") String searchKeyword,
+			@RequestParam("searchOption") String searchOption,
+			@RequestParam(value = "siteList[]") List<String> siteList, Model model) {
+		List<BoardVO> boardList = boardService.getBoardList(index, order, time, searchKeyword, searchOption, siteList);
 		boardList = c.conversion(boardList);
 		model.addAttribute("boardList", boardList);
 	}
-
 }

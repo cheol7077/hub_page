@@ -29,4 +29,9 @@ public class ScrapService {
 		ScrapDAO scrapDao = sqlSessionTemplate.getMapper(ScrapDAO.class);
 		return scrapDao.getBoardList(uid);
 	}
+	
+	public int deleteScrap(@Param("uid") int uid, @Param("bid") int bid) {
+		ScrapDAO scrapDao = sqlSessionTemplate.getMapper(ScrapDAO.class);
+		return scrapDao.deleteScrap(uid, bid);
+	}
 }

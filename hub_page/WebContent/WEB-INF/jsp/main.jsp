@@ -7,6 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script src="js/jquery-3.2.1.js"></script>
+<script src="js/main.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+
 <link href="css/timeline.css" rel="stylesheet" />
 <link href="css/view.css" rel="stylesheet" />
 <link rel="stylesheet"
@@ -17,157 +26,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
-	
-</script>
-<script>
-	var parameters = {
-		index : 0,
-		order : 'hits',
-		time : 24,
-		siteList : [ 'c1', 'c2', 'c3', 'c4' ],
-		searchKeyword : "",
-		searchOption : "titleContentSearch"
 
-	}
-
-	function boardView() {
-		$.ajax({
-			url : 'board.do',
-			dataType : 'text',
-			data : {
-				index : parameters.index,
-				order : parameters.order,
-				time : parameters.time,
-				siteList : parameters.siteList,
-				searchKeyword : parameters.searchKeyword,
-				searchOption : parameters.searchOption
-			},
-			success : function(data) {
-				if (parameters.index == 0)
-					$('#board').html(data)
-				else
-					$('#board').append(data)
-
-				if (parameters.searchKeyword != "")
-					$('#searchResult')
-							.html(parameters.searchKeyword + " 검색 결과")
-				else
-					$('#searchResult').html("")
-
-			}
-		})
-	}
-
-	function search() {
-		var formData = new FormData(document.getElementById('searchForm'));
-		parameters.searchKeyword = formData.get("searchKeyword")
-		parameters.searchOption = formData.get("searchOption")
-		if (parameters.searchKeyword.length < 2) {
-			alert("검색어는 2자 이상 입력해 주세요")
-			return false
-		}
-		boardView()
-		document.getElementById("searchKeyword").value = "";
-	}
-
-	function enterkey() {
-		if (window.event.keyCode == 13) {
-			search();
-		}
-	}
-
-	function selectSite() {
-		var check = false
-		parameters.siteList = []
-		$(".site:checked").each(function() {
-			parameters.siteList.push($(this).val())
-			check = true
-		})
-
-		if (!check) {
-			parameters.siteList = [ 'null' ]
-		}
-
-		boardView()
-	}
-
-	$(function() {
-		boardView()
-
-		$('#board').scroll(function() {
-			var sl = $('#board').scrollTop() + $('#board').height();
-			var sh = $('#board').prop('scrollHeight')
-			if (sl == sh) {
-				parameters.index += 10;
-				boardView()
-			}
-		})
-
-		$('.init').click(function() {
-			parameters.index = 0
-			parameters.order = 'hits'
-			parameters.siteList = [ 'c1', 'c2', 'c3', 'c4' ]
-			parameters.searchKeyword = ""
-			parameters.searchOption = "titleContentSearch"
-			boardView()
-		})
-
-		$('.order').click(function() {
-			parameters.index = 0
-			parameters.order = $(this).val()
-			boardView()
-		})
-
-		$('.time').click(function() {
-			parameters.index = 0
-			parameters.time = $(this).val()
-			boardView()
-		})
-
-		$('.site').click(function() {
-			parameters.index = 0
-			selectSite()
-		})
-
-		$('#total').click(function() {
-			parameters.index = 0
-			$('.site').prop('checked', true)
-			selectSite()
-		})
-
-		$('#search').click(function() {
-			search();
-		})
-
-		$(document).on('click', '.scrap', function() {
-			$.ajax({
-				url : 'scrap.do',
-				data : {
-					bid : $(this).val()
-				},
-				success : function(data) {
-					if (data != -1)
-						alert(data + '번 게시물 스크랩하였습니다')
-					else
-						alert('이미 추가하였습니다')
-				}
-			})
-		})
-
-		$(document).on('click', '.boardurl', function() {
-			var url = $(this).attr('href')
-			$('#content').attr('src', url)
-
-			return false
-		})
-	})
-</script>
 <title>THE HUB FACTORY</title>
 </head>
 <body class="homepage">
@@ -219,18 +78,8 @@
 				<!-- 	<p>A responsive template by HTML5 UP</p>-->
 			</div>
 		</div>
-		<div
-			style="overflow-x: hidden; overflow-y: scroll; border: 1px solid #48BAE4; height: 924px; width: 500px; float: left;"
-			id="board"></div>
-		<iframe src="" width="500" height="924" id="content">hello</iframe>
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.dropotron.min.js"></script>
-		<script src="assets/js/skel.min.js"></script>
-		<script src="assets/js/skel-viewport.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-		<script src="assets/js/main.js"></script>
+		<div id="board"></div>
+		<iframe id="content">hello</iframe>
 	</div>
 </body>
 </html>

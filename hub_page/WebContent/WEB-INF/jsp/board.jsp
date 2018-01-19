@@ -27,7 +27,6 @@
 						%>
 					</div>
 				</div>
-				<div class="qa-message-content">${board.thumbnail }</div>
 			</div>
 		</div>
 	</div>
