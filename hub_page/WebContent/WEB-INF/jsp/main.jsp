@@ -79,7 +79,7 @@
 			</div>
 		</div>
 		<div id="board"></div>
-		<iframe id="content">hello</iframe>
+		<iframe id="content"></iframe>
 	</div>
 </body>
 </html>

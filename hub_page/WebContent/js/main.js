@@ -112,7 +112,7 @@ $(function() {
 		$('.site').prop('checked', true)
 		selectSite()
 	})
-
+	
 	$('#search').click(function() {
 		search();
 	})
