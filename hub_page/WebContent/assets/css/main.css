@@ -47,6 +47,8 @@
 	body {
 		-webkit-text-size-adjust: none;
 	}
+	
+	
 
 /* Box Model */
 
@@ -1306,7 +1308,7 @@
 		border-radius: 5px;
 		background: #0881A3;
 		color: #fff !important;
-		font-weight: 300;
+/* 		font-weight: 300; */
 		outline: 0;
 		-moz-transition: background-color .25s ease-in-out;
 		-webkit-transition: background-color .25s ease-in-out;
@@ -1365,8 +1367,8 @@
 			margin-right: 0.75em;
 		}
 		.btn{
-		background-color: #FDE9DF;
-		}
+		background-color:#FDE9DF; }
+		
 /* Image */
 
 	.image {
@@ -1690,11 +1692,13 @@
 		border-bottom: solid 1px #ccc;
 	}
 	
-	#user {
+	.user {
 		position: relative;
 		background: #FDE9DF;
-		border-bottom: solid 1px #ccc;
-		float: right;
+		width:100%;
+		height:fit-content;
+		
+
 	}
 	
 
@@ -1791,6 +1795,10 @@
 			h3 {
 				font-size: 1.35em;
 			}
+			
+			#mainbar{
+			background-color: #FDE9DF;
+			}
 
 		/* Section/Article */
 
@@ -1845,8 +1853,8 @@
 			input[type="reset"],
 			button,
 			.button {
-				font-size: 1.1em;
-				padding: 0.65em 1.5em 0.65em 1.5em;
+				font-size: 1em;
+				padding: 0.2em 0.5em 0.5em 0.2em;
 			}
 
 				input[type="button"].big,
@@ -1857,10 +1865,7 @@
 					font-size: 1.5em;
 					padding: 0.75em 1.5em 0.75em 1.5em;
 				}
-			.btn {
-				background-color:#FDE9DF; 
-				
-			}
+	
 
 		/* List */
 
@@ -1896,13 +1901,13 @@
 
 		/* Wrappers */
 
-			#header-wrapper {
-				padding: 4.5em 0 4em 0;
+ 			#header-wrapper {
+				padding: 0 0 0 0;
 			}
-
-			#main-wrapper {
+ 
+		 	#main-wrapper {
 				padding: 4em 0 4em 0;
-			}
+			} 
 
 			#footer-wrapper {
 				padding: 4em 0 4em 0;
@@ -1924,7 +1929,6 @@
 
 				#header h1 {
 					color: #252122;
-					font-weight: 900;
 					font-size: 2.5em;
 					letter-spacing: -0.035em;
 					margin: 0 0 1em 0;
@@ -2138,10 +2142,9 @@
 			}
 
 		/* Wrappers */
-
-			 #header-wrapper {
-				padding: 3em 0 3em 0;
-			}
+		 	 #header-wrapper {
+				padding: 0 0 0 0;
+			} 
 
 			#main-wrapper {
 				padding: 2.75em 0 2.75em 0;
@@ -2263,7 +2266,7 @@
 				padding: 0.65em 0 0.65em 0 !important;
 				width: 100%;
 				text-align: center;
-				font-size: 1.25em;
+				font-size: 1em;
 				margin: 0.25em 0 0.25em 0;
 			}
 
@@ -2274,6 +2277,8 @@
 				.button.icon {
 					padding-right: 1em !important;
 				}
+				
+
 
 		/* List */
 
@@ -2471,14 +2476,22 @@
 			}
 
 		/* Wrappers */
-
+			.user{
+			
+		position: relative;
+		background: #FDE9DF;
+		width:100%;
+		height:fit-content;
+		
+			
+		}
 			#main-wrapper {
-				padding: 2em 10px;
+				padding: 0 10px;
 				overflow: hidden;
 			}
 
 			#header-wrapper {
-				padding: 2em 0;
+				padding: 0 0;
 			} 
 
 			#footer-wrapper {
@@ -2512,12 +2525,11 @@
 		/* Header */
 
 			#header {
-				text-align: center;
+				text-align: left;
 			}
 
 				#header h1 {
 					color: #252122;
-					font-weight: 900;
 					font-size: 1.75em;
 					letter-spacing: -0.035em;
 				}

@@ -3,12 +3,12 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link href="css/timeline.css" rel="stylesheet" />
-<link href="css/view.css" rel="stylesheet" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <script>
 $(function() {
+
 	
  	$('.boardurl').click(function() {
 		var url = $(this).attr('href'); 
@@ -28,7 +28,7 @@ $(function() {
 });
  
 </script>
-<div class="iframe1"style="float: left; width: 33%;">
+<div class="iframe1"style="position:relative; float: right ; width: 33%;">
 
 <c:forEach var="board" items="${boardList}">
 	<div class="qa-message-list" id="wallmessages">
