@@ -36,7 +36,7 @@
  	
 <!-- 
 		<div id="header-wrapper">  -->
-			<div class="user" style="background-color: #FDE9DF;">
+			<div class="user" style="background-color: #E3AC1B">
 				<%
 					if (session.getAttribute("sessionId") == null) {
 				%>
@@ -59,7 +59,7 @@
 			</div>
 			<div id="page-wrapper">
 				<!-- Logo -->
-				<h1 style="font-family: 'Passion One', cursive; margin:0 0 0 0; padding:0 0 0 0;" class="w3-container w3-center w3-animate-left">
+				<h1 style="font-family: 'Passion One', cursive; margin:0 0 0 0; padding:0 0 0 0; color:#122965;" class="w3-container w3-center w3-animate-left">
 					THE HUB FACTORY
 				</h1>
 	

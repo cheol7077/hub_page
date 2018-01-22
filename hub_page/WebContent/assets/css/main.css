@@ -1166,9 +1166,10 @@ input[type="button"], input[type="submit"], input[type="reset"], button,
 	cursor: pointer;
 	border: 0;
 	border-radius: 5px;
-	background: #0881A3;
+	background: #122965;
 	color: #fff !important;
 	font-weight: 300;
+	    font-family: 'Jeju Gothic';
 	outline: 0;
 	-moz-transition: background-color .25s ease-in-out;
 	-webkit-transition: background-color .25s ease-in-out;
@@ -1178,12 +1179,12 @@ input[type="button"], input[type="submit"], input[type="reset"], button,
 
 input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover,
 	button:hover, .button:hover {
-	background: #FFD6A4;
+	background: #E3C21B;
 }
 
 input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:active,
 	button:active, .button:active {
-	background: #FFD6A4;
+	background: #E3C21B;
 }
 
 input[type="button"].alt, input[type="submit"].alt, input[type="reset"].alt,
@@ -1211,7 +1212,7 @@ input[type="button"].icon:before, input[type="submit"].icon:before,
 }
 
 .btn {
-	background-color: #FDE9DF;
+	background-color: #E3AC1B;
 }
 /* Image */
 .image {
@@ -1669,7 +1670,7 @@ ol.default li {
 	input[type="button"], input[type="submit"], input[type="reset"], button,
 		.button {
 		font-size: 1.1em;
-		padding: 0.65em 1.5em 0.65em 1.5em;
+		padding: 0.3em 1em 0.3em 1em;
 	}
 	input[type="button"].big, input[type="submit"].big, input[type="reset"].big,
 		button.big, .button.big {
@@ -1677,7 +1678,7 @@ ol.default li {
 		padding: 0.75em 1.5em 0.75em 1.5em;
 	}
 	.btn {
-		background-color: #FDE9DF;
+		background-color: #E3AC1B;
 	}
 
 	/* List */
@@ -1870,7 +1871,7 @@ ol.default li {
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background: #FFD6A4;
+			background: #E3C21B;
 		}
 
 		input[type="button"]:active,
@@ -1878,7 +1879,7 @@ ol.default li {
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
-			background: #FFD6A4;
+			background: #E3C21B;
 		}
 
 		input[type="button"].alt,
@@ -1916,7 +1917,7 @@ ol.default li {
 			margin-right: 0.75em;
 		}
 		.btn{
-		background-color:#FDE9DF; }
+		background-color:#E3AC1B; }
 		
 /* Image */
 

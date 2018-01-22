@@ -87,7 +87,7 @@
 					<div id="panel">
 					<div id="nav-text1">커뮤니티별 보기</div>
 										<br/>
-										<button id="total">전체</button>
+										<button id="total" style="border-radius: 5px;">전체</button>
 										<br/>
 											<input type="checkbox" id="fm" 
 											class="site" value="c1" checked="checked"><label for="fm">에펨코리아</label>

@@ -1,12 +1,10 @@
 @CHARSET "UTF-8";
 
-
-@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
- 
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 #panel{
     padding: 15px;
     display: none;
-    background-color:#FDE9DF;
+    background-color:#E3AC1B;
 height:250px;}
 #panelone{
     padding: 15px;
@@ -17,7 +15,7 @@ height:250px;}
     padding: 15px;
     display: none;
     height:250px;
-    background-color:#FDE9DF;
+    background-color:#E3AC1B;
 }
 #panelthree{
     padding: 15px;
@@ -46,7 +44,7 @@ height:250px;}
   position: absolute;
   height: 7px;
   width: 100%;
-  background: #FDE9DF;
+  background: #E3AC1B;
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -98,11 +96,12 @@ height:250px;}
 #nav-text1 {
 	margin-top:22px;
 	margin-left:3px;
-	color:#0881A3;
+	color:#122965;
 	  letter-spacing: 2px;
-	font-family: 'Hanna', sans-serif;
-  font-style: normal;
+	font-family: 'Jeju Gothic';
+  font-style: bold;
   font-weight: 400;
+  
 
 }
 
