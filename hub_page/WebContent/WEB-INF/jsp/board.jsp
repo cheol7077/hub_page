@@ -16,8 +16,10 @@
 					<div class="user-detail">
 						<a href="${board.url }" class="boardurl">${board.title}</a>
 
-						<h4 class="handle">조회수:${board.hits } 댓글수:${board.commentCnt }
-							날짜:${board.date }</h4>
+						<h4 class="handle"><span class="glyphicon glyphicon-heart" style="color:#E3AC1B;"></span>조회수:${board.hits }
+						<span class="glyphicon glyphicon-pencil" style="color:#E3AC1B;"></span>
+						댓글수:${board.commentCnt }
+							<br/><span class="glyphicon glyphicon-time"style="color:#E3AC1B;"></span>날짜:${board.date }</h4>
 						<%
 							if(session.getAttribute("sessionId") != null) {
 						%>

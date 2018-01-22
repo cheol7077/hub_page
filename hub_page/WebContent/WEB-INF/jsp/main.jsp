@@ -85,7 +85,7 @@
 		<div class="mainbar"style="float:left; width:25%;">	
 			
 					<div id="panel">
-					<div id="nav-text1">커뮤니티별 보기</div>
+					<div id="nav-text1"><span class="glyphicon glyphicon-home"></span>커뮤니티별 보기</div>
 										<br/>
 										<button id="total" style="border-radius: 5px;">전체</button>
 										<br/>
@@ -113,7 +113,7 @@
 		<div class="mainbar"style="float:left; width:25%;">	
 
 			<div id="panelone">
-				<div id="nav-text1">카테고리별 보기</div>
+				<div id="nav-text1"><span class="glyphicon glyphicon-heart"></span>카테고리별 보기</div>
 				<button class="button init" value="init">초기화</button>
 				<button class="button order" value="hits">조회수</button><br/>
 				<button class="button order" value="commentCnt">댓글수</button><br/>
@@ -124,7 +124,7 @@
 	
 			<div id="paneltwo">
 	
-			<div id="nav-text1">시간순 보기</div>
+			<div id="nav-text1"><span class="glyphicon glyphicon-time"></span>시간순 보기</div>
 				<button class="button time" value="3">3시간전</button><br/>
 				<button class="button time" value="6">6시간전</button><br/>
 				<button class="button time" value="12">12시간전</button><br/>
@@ -136,7 +136,7 @@
 		<div class="mainbar"style="float:left; width:25%;">	
 
 			<div id="panelthree">
-			<div id="nav-text1">검색 보기</div>
+			<div id="nav-text1"><span class="glyphicon glyphicon-search"></span>검색 보기</div>
 				<form method="get" name="searchForm" id="searchForm"
 					onsubmit="return false">
 					<select name="searchOption" id="searchOption">

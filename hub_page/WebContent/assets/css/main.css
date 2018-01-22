@@ -24,6 +24,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: 'Jeju Gothic';
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup,
@@ -1035,6 +1036,7 @@ form label {
 	color: #252122;
 	font-weight: 400;
 	margin: 0 0 0.5em 0;
+	
 }
 
 form input[type=text], form input[type=email], form input[type=password],
