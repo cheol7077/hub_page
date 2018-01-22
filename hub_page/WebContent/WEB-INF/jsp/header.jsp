@@ -14,6 +14,7 @@
  <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  <script src="js/jquery-3.2.1.js"></script>
+ <script src="js/header.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -28,55 +29,6 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
 
-<script>
-$(function() {
-
-	var id_check = "중복!"
-	var check_flag = 0
-	
-	document.getElementById('submit').onclick = function() {
-		var userID = $('#userID').val();
-		var password = $('#password').val()
-		
-		if(check_flag == 0) {
-			alert('중복체크하세요!')
-			return
-		}
-		
-		if(password == "") {
-			alert('비밀번호 입력하세요!')
-			return
-		}
-		
-		if(password != $('#passwordCheck').val()) {
-			alert("비밀번호가 일치하지않습니다!")
-			return
-		}
-			
-		location = 'signup.do?userID=' + userID + '&password=' + password;
-	}
-	
-	document.getElementById('check').onclick = function() {
-		$.ajax({
-			url : 'memberCheck.do',
-			data : {
-				userID : document.getElementById('userID').value
-			},
-			success : function(data) {
-				if($.trim(data) != id_check)
-					check_flag = 1
-				else
-					check_flag = 0
-				$('#checkmeg').html(data)
-			}
-		})
-	}
-	
-	document.getElementById('login').onclick = function() {
-		location.href = "login.do?userID=" + $('#loginId').val() + "&password=" + $('#loginPw').val()
-	}	
-})
-</script>
 
 </head>
 
@@ -209,14 +161,5 @@ $(function() {
 		</div>
 	</div>
 
-				<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/skel-viewport.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>	
-			
 </body>
 </html>

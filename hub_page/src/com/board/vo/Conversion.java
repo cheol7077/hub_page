@@ -23,7 +23,7 @@ public class Conversion {
 			}
 			
 			if(contents[j].startsWith("http")&&((contents[j].endsWith("jpg")||(contents[j].endsWith("bmp"))||(contents[j].endsWith("gif"))||(contents[j].endsWith("png"))||(contents[j].endsWith("jpeg"))
-					||(contents[j].endsWith("JPG"))||(contents[j].endsWith("JPEG"))||(contents[j].endsWith("BMP"))||(contents[j].endsWith("GIF"))||(contents[j].endsWith("PNG")) ))){
+					||(contents[j].endsWith("JPG"))||(contents[j].endsWith("JPEG"))||(contents[j].endsWith("BMP"))||(contents[j].endsWith("GIF"))||(contents[j].endsWith("PNG")) || contents[j].contains("ruliweb") ))){
 				contents[j] = "<img width = 200 height = 200 src =\'" +contents[j] + "\'/>" + "";
 
 			}else if(contents[j].startsWith("https://www.youtube.com")||(contents[j].startsWith("https://media"))){
