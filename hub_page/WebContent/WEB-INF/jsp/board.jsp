@@ -5,6 +5,18 @@
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="js/thum.js" type="text/javascript"></script>
+<style>
+#screenshot{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+	}
+</style>
+
 <c:forEach var="board" items="${boardList}">
 	<div class="qa-message-list" id="wallmessages">
 		<div class="message-item" id="m16">
@@ -14,12 +26,13 @@
 						<img src="cp/${board.communityID }.png" />
 					</div>
 					<div class="user-detail">
-						<a href="${board.url }" class="boardurl">${board.title}</a>
+						<a href="${board.url }" rel = "${board.thumbnail }" class="boardurl screenshot">${board.title}</a>
 
 						<h4 class="handle"><span class="glyphicon glyphicon-heart" style="color:#E3AC1B;"></span>조회수:${board.hits }
 						<span class="glyphicon glyphicon-pencil" style="color:#E3AC1B;"></span>
 						댓글수:${board.commentCnt }
-							<br/><span class="glyphicon glyphicon-time"style="color:#E3AC1B;"></span>날짜:${board.date }</h4>
+							<br/><span class="glyphicon glyphicon-time"style="color:#E3AC1B;"></span>날짜:${board.date }</h4> 
+							${board.dateCompare }
 						<%
 							if(session.getAttribute("sessionId") != null) {
 						%>
