@@ -74,7 +74,9 @@ $(function() {
 
 	$('#board').scroll(function() {
 		var sl = $('#board').scrollTop() + $('#board').height();
+		console.log('height: '+$('#board').height())
 		var sh = $('#board').prop('scrollHeight')
+		console.log('sl: '+sl+', sh: '+sh)
 		if (sl == sh) {
 			parameters.index += ADD_INDEX;
 			boardView()

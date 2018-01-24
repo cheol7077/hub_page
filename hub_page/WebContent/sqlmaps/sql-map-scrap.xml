@@ -15,7 +15,7 @@
 	</select>
 	<select id="getBoardList" parameterType="int" resultType="com.board.vo.BoardVO">
 		SELECT c.id, c.title, c.content, c.date, c.url, c.hits, c.commentCnt, c.communityID
-		FROM scrap s, commu c
+		FROM scrap s, board c
 		WHERE s.bid = c.id
 		AND s.uid = #{uid};
 	</select>

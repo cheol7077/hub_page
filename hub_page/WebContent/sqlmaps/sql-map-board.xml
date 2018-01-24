@@ -5,7 +5,7 @@
 <mapper namespace="com.board.dao.BoardDAO">
    <select id="getBoardList" parameterType="map" resultType="com.board.vo.BoardVO">
       SELECT *
-      FROM commu
+      FROM board
       WHERE date >= date_add(now(), interval-#{time} HOUR)
       AND communityID IN
       <foreach collection="siteList" item="site" open="(" close=")" separator=",">
