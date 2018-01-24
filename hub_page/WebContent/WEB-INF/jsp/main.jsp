@@ -8,6 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script src="js/jquery-3.2.1.js"></script>
 <script src="js/main.js"></script>
+
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
@@ -17,7 +19,7 @@
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 
 <link href="css/timeline.css" rel="stylesheet" />
-<link href="css/view.css" rel="stylesheet" />
+<link href="assets/css/mainbar.css" rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/main.css" />
@@ -26,36 +28,115 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"
+></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
+</script>
+<title>main.jsp</title>
+<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
-<title>THE HUB FACTORY</title>
+
+<script>
+
+	$(function() {
+		
+ 		$("#nav-icon1").click(function(){
+ 				$(this).toggleClass('open');
+		        $("#panel").slideToggle("slow");
+		        
+		        
+		        $("#panelone").slideToggle("slow");
+		        
+		        $("#paneltwo").slideToggle("slow");
+		        $("#panelthree").slideToggle("slow");
+		    });
+
+
+	
+	})
+	
+
+</script>
+
 </head>
-<body class="homepage">
-	<div id="page-wrapper">
-		<!-- Header -->
-		<div id="header-wrapper">
-			<div id="header">
-				<jsp:include page="/WEB-INF/jsp/header.jsp" flush="false" />
-				<button id="total">전체</button>
-				<input type="checkbox" id="fm" class="site" value="c1"
-					checked="checked"> <label for="fm">에펨코리아</label> <input
-					type="checkbox" id="ppom" class="site" value="c2" checked="checked">
-				<label for="ppom">뽐뿌</label> <input type="checkbox" id="univ"
-					class="site" value="c3" checked="checked"> <label
-					for="univ">웃대</label> <input type="checkbox" id="ruliweb"
-					class="site" value="c4" checked="checked"> <label
-					for="ruliweb">루리웹</label><br />
+<body>
 
+			<jsp:include page="/WEB-INF/jsp/header.jsp" flush="false"/>
+			
+				
+				
+		<div>			
+				<div id="nav-icon1" style="float:left;">
+	
+  			<span></span>
+  			<span></span>
+ 			 <span></span>
+
+				
+				</div>
+		
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+
+		<div class="mainbar"style="float:left; width:25%;">	
+			
+					<div id="panel">
+					<div id="nav-text1"><span class="glyphicon glyphicon-home"></span>커뮤니티별 보기</div>
+										<br/>
+										<button id="total" style="border-radius: 5px;">전체</button>
+										<br/>
+											<input type="checkbox" id="fm" 
+											class="site" value="c1" checked="checked"><label for="fm">에펨코리아</label>
+											
+										<br/>	
+											 <input type="checkbox" id="ppom"
+												class="site" value="c2" checked="checked"><label for="ppom">뽐뿌</label> 
+										<br/>	
+									<input type="checkbox" id="univ"
+												class="site" value="c3" checked="checked"
+											> <label for="univ">웃대</label> 
+										<br/>	
+											<input type="checkbox" id="ruliweb"
+												class="site" value="c4" checked="checked"
+											> <label for="ruliweb">루리웹</label><br />
+										<br/>	
+											
+					</div>
+			
+			</div>
+						
+					
+		<div class="mainbar"style="float:left; width:25%;">	
+
+			<div id="panelone">
+				<div id="nav-text1"><span class="glyphicon glyphicon-heart"></span>카테고리별 보기</div>
 				<button class="button init" value="init">초기화</button>
-				<button class="button order" value="hits">조회수</button>
-				<button class="button order" value="commentCnt">댓글수</button>
+				<button class="button order" value="hits">조회수</button><br/>
+				<button class="button order" value="commentCnt">댓글수</button><br/>
 				<button class="button order" value="date">최신</button>
-				<br />
-				<button class="button time" value="3">3시간전</button>
-				<button class="button time" value="6">6시간전</button>
-				<button class="button time" value="12">12시간전</button>
+			</div>
+		</div>
+		<div class="mainbar"style="float:left; width:25%; ">	
+	
+			<div id="paneltwo">
+	
+			<div id="nav-text1"><span class="glyphicon glyphicon-time"></span>시간순 보기</div>
+				<button class="button time" value="3">3시간전</button><br/>
+				<button class="button time" value="6">6시간전</button><br/>
+				<button class="button time" value="12">12시간전</button><br/>
 				<button class="button time" value="24">24시간전</button>
 				<br />
-				<div></div>
+			</div>	
+			</div>
+					
+		<div class="mainbar"style="float:left; width:25%;">	
+
+			<div id="panelthree">
+			<div id="nav-text1"><span class="glyphicon glyphicon-search"></span>검색 보기</div>
 				<form method="get" name="searchForm" id="searchForm"
 					onsubmit="return false">
 					<select name="searchOption" id="searchOption">
@@ -75,11 +156,18 @@
 						type="button" value="글검색" name="search" id="search"> <br />
 					<b id="searchResult"></b>
 				</form>
-				<!-- 	<p>A responsive template by HTML5 UP</p>-->
-			</div>
+				</div>
+				</div>
+				
+			
 		</div>
-		<div id="board"></div>
-		<iframe id="content"></iframe>
-	</div>
+		<div id="board" style="float:left; 	overflow-x: hidden;
+	overflow-y: scroll;
+	max-height:600px;
+	width: 25%;
+	float: left;"></div>
+		<iframe id="content" style="width: 75%;
+	height: 600px;"></iframe>
+		
+		
 </body>
-</html>

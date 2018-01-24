@@ -1,5 +1,7 @@
 package com.board.vo;
 
+import java.util.Date;
+
 public class BoardVO {
 	private int id;
 	private String title;
@@ -10,7 +12,22 @@ public class BoardVO {
 	private int commentCnt;
 	private String communityID;
 	private String thumbnail = "사진이 없습니다";
+	private String dateCompare;
+	private String boardId;
 	
+
+	public String getBoardId() {
+		return boardId;
+	}
+	public void setBoardId(String boardId) {
+		this.boardId = boardId;
+	}
+	public String getDateCompare() {
+		return dateCompare;
+	}
+	public void setDateCompare(String dateCompare) {
+		this.dateCompare = dateCompare;
+	}
 	public String getThumbnail() {
 		return thumbnail;
 	}
