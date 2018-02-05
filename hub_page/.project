@@ -28,11 +28,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>WebContent/file1</name>
-			<type>2</type>
-			<location>Z:/file</location>
-		</link>
-	</linkedResources>
 </projectDescription>

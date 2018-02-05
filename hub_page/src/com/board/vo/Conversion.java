@@ -23,9 +23,9 @@ public class Conversion {
 		for(int i=0; i<list.size(); i++) {
 		
 			try {
-			communityId = list.get(i).getCommunityID();
-			boardId = list.get(i).getBoardId();
-			File f = new File("\\\\192.168.1.31\\crawler\\file\\"+communityId+"\\"+boardId);
+			communityId = list.get(i).getCid();
+			boardId = list.get(i).getBid();
+			File f = new File("C:\\Users\\hihi\\Desktop\\img_crawler\\img_crawler\\file\\"+communityId+"\\"+boardId);
 			
 			File[] allFiles = f.listFiles();
 			for (File file : allFiles) {
@@ -57,7 +57,7 @@ public class Conversion {
 		
 		for(int i=0; i<list.size(); i++) {
 			temp = list.get(i).getContent();
-			temp = temp.replace("\\", "::");
+			temp = temp.replace(" ", "::");
 			String contents[] = temp.split("::");
 			temp = "";
 		
@@ -69,6 +69,10 @@ public class Conversion {
 			}
 			if(contents[j].startsWith("http")&&((contents[j].endsWith("jpg")||(contents[j].endsWith("bmp"))||(contents[j].endsWith("gif"))||(contents[j].endsWith("png"))||(contents[j].endsWith("jpeg"))
 					||(contents[j].endsWith("JPG"))||(contents[j].endsWith("JPEG"))||(contents[j].endsWith("BMP"))||(contents[j].endsWith("GIF"))||(contents[j].endsWith("PNG")) || contents[j].contains("ruliweb") ))){
+				
+				if(list.get(i).getOverlab().equals(""))
+				list.get(i).setOverlab(contents[j]);
+				
 				contents[j] = "<img src =\'" +contents[j] +"'"+" alt='사진을 로드하지 못했습니다'  style='width:400px; height:400px'/>" ;
 
 			}else if(contents[j].startsWith("https://www.youtube.com")||(contents[j].startsWith("https://media"))){
@@ -91,7 +95,11 @@ public class Conversion {
 				if(contents[j].startsWith("<img ")) {
 					thum = contents[j];
 					
-					if(list.get(i).getCommunityID().equals("c1")) {
+					if(thum.contains("transparent.gif")) {
+						thum = "사진이 없습니다";
+						continue;
+					}
+					if(list.get(i).getCid().equals("c1")) {
 						list.get(i).setThumbnail(thum);
 					}
 					break;

@@ -6,7 +6,8 @@ var parameters = {
 	time : 24,
 	siteList : [ 'c1', 'c2', 'c3', 'c4' ],
 	searchKeyword : "",
-	searchOption : "titleContentSearch"
+	searchOption : "titleContentSearch",
+	adultView : "Y"
 }
 
 function boardView() {
@@ -19,7 +20,8 @@ function boardView() {
 			time : parameters.time,
 			siteList : parameters.siteList,
 			searchKeyword : parameters.searchKeyword,
-			searchOption : parameters.searchOption
+			searchOption : parameters.searchOption,
+			adultView : parameters.adultView
 		},
 		success : function(data) {
 			if (parameters.index == INIT)
@@ -87,6 +89,7 @@ $(function() {
 		parameters.siteList = [ 'c1', 'c2', 'c3', 'c4' ]
 		parameters.searchKeyword = ""
 		parameters.searchOption = "titleContentSearch"
+		parameters.adultview = "N"
 		boardView()
 	})
 
@@ -116,6 +119,7 @@ $(function() {
 	$('#search').click(function() {
 		search();
 	})
+	
 
 	$(document).on('click', '.scrap', function() {
 		$.ajax({
@@ -133,6 +137,27 @@ $(function() {
 			}
 		})
 	})
+	
+$(document).on('click', '.overlab', function() {
+	var arr = $(this).val().split("::")
+	var id = arr[0]
+	var overlab = arr[1] 
+	$.ajax({
+		url : 'overlab.do',
+		dataType : 'text',
+		data : {
+			overlab : overlab
+		},
+		success : function(data) {
+			var selector = "#"+id;
+//			alert("selector = " + selector );
+//			alert("overlab = " +overlab);
+			$(selector).html(data)
+		}
+	})
+})
+
+
 
 	$(document).on('click', '.boardurl', function() {
 		var url = $(this).attr('href')

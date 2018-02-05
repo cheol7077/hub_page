@@ -7,11 +7,12 @@
       SELECT *
       FROM board
       WHERE date >= date_add(now(), interval-#{time} HOUR)
-      AND communityID IN
+      AND cid IN
       <foreach collection="siteList" item="site" open="(" close=")" separator=",">
          #{site}
       </foreach>
       <include refid="search"/>
+      and adult in('N','${adultView}')
       ORDER BY ${order} desc
       LIMIT #{index}, 10
    </select>
@@ -32,4 +33,5 @@
       </if>
    </if>
       </sql>
+    
 </mapper>

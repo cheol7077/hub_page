@@ -39,25 +39,33 @@
 
 
 <script>
-
 	$(function() {
-		
  		$("#nav-icon1").click(function(){
  				$(this).toggleClass('open');
 		        $("#panel").slideToggle("slow");
-		        
-		        
 		        $("#panelone").slideToggle("slow");
-		        
 		        $("#paneltwo").slideToggle("slow");
 		        $("#panelthree").slideToggle("slow");
 		    });
-
-
-	
 	})
-	
 
+	
+	$(window).on("load",function(){
+    $("#adultbox").change(function(){
+        if($("#adultbox").is(":checked")){
+            alert("체크박스 체크했음!");
+            parameters.adultView = "N"
+            parameters.index = 0
+            boardView()
+        }else{
+            alert("체크박스 체크 해제!");
+            parameters.adultView = "Y"
+            parameters.index = 0
+            boardView()
+        }
+    });
+});
+	
 </script>
 
 </head>
@@ -116,7 +124,7 @@
 				<div id="nav-text1"><span class="glyphicon glyphicon-heart"></span>카테고리별 보기</div>
 				<button class="button init" value="init">초기화</button>
 				<button class="button order" value="hits">조회수</button><br/>
-				<button class="button order" value="commentCnt">댓글수</button><br/>
+				<button class="button order" value="coCnt">댓글수</button><br/>
 				<button class="button order" value="date">최신</button>
 			</div>
 		</div>
@@ -153,12 +161,12 @@
 					<input type="hidden" value="c2" name="siteList[]"> <input
 						type="hidden" value="c3" name="siteList[]"> <input
 						type="hidden" value="c4" name="siteList[]"> <input
-						type="button" value="글검색" name="search" id="search"> <br />
+						type="button" value="글검색" name="search" id="search"> <br /><br />
+						건전한 게시물만 보기 <input type = "checkbox" value="N"  id = "adultbox"/>
 					<b id="searchResult"></b>
 				</form>
 				</div>
 				</div>
-				
 			
 		</div>
 		<div id="board" style="float:left; 	overflow-x: hidden;
