@@ -36,21 +36,15 @@ public class BoardController {
 	public void board(@RequestParam("index") int index, @RequestParam("order") String order,
 			@RequestParam("time") int time,@RequestParam("searchKeyword") String searchKeyword,
 			@RequestParam("searchOption") String searchOption, @RequestParam(value = "siteList[]") List<String> siteList, @RequestParam("adultView") String adultView, Model model) throws ParseException {
-		System.out.println("adultView : " + adultView);
 		List<BoardVO> boardList = boardService.getBoardList(index, order, time,searchKeyword,searchOption, siteList, adultView);
 		boardList = c.conversion(boardList);
 		model.addAttribute("boardList", boardList);
 	}
 	
 	@RequestMapping("/overlab.do")
-	public void overlabControl(@RequestParam("overlab") String overlab, HttpSession session, Model model) throws Exception {
-		System.out.println("오버랩 : " + overlab);
+	public void overlabControl(@RequestParam("overlab") String overlab, Model model) throws Exception {
 		ArrayList<String> overlabList = o.getOverlab(overlab);
-		for(String over : overlabList) {
-		System.out.println(over);
-		}
 		
-		model.addAttribute("overlabList", "");
 		model.addAttribute("overlabList", overlabList);
 	}
 

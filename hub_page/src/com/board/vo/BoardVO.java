@@ -1,7 +1,5 @@
 package com.board.vo;
 
-import java.util.Date;
-
 public class BoardVO {
 	private int id;
 	private String title;

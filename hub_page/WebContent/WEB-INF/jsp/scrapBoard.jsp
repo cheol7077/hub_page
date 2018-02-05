@@ -26,7 +26,7 @@
 					<div class="message-inner">
 						<div class="message-head clearfix">
 							<div class="avatar pull-left">
-								<img src="cp/${board.communityID }.png" />
+								<img src="cp/${board.cid }.png" />
 							</div>
 							<div class="user-detail">
 								<a href="${board.url }" class="boardurl">${board.title}</a>
@@ -34,7 +34,7 @@
 							</div>
 						</div>
 						<h4 class="handle" style="font-size: 12px;">조회수:${board.hits }
-							댓글수:${board.commentCnt } 날짜:${board.date }</h4>
+							댓글수:${board.coCnt } 날짜:${board.date }</h4>
 					</div>
 				</div>
 			</div>
