@@ -53,7 +53,7 @@ public class MemberController {
 			model.addAttribute("checkLogin", FAIL);
 		}
 
-		return F_MAIN;
+		return R_MAIN;
 	}
 
 	@RequestMapping("/logout.do")

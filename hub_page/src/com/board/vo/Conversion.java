@@ -23,8 +23,8 @@ public class Conversion {
 		for(int i=0; i<list.size(); i++) {
 		
 			try {
-			communityId = list.get(i).getCommunityID();
-			boardId = list.get(i).getBoardId();
+			communityId = list.get(i).getCid();
+			boardId = list.get(i).getBid();
 			File f = new File("\\\\192.168.1.31\\crawler\\file\\"+communityId+"\\"+boardId);
 			
 			File[] allFiles = f.listFiles();
@@ -56,7 +56,7 @@ public class Conversion {
 		list = getThumbnail(list);
 		
 		for(int i=0; i<list.size(); i++) {
-			temp = list.get(i).getContent();
+			temp = list.get(i).getKeywords();
 			temp = temp.replace("\\", "::");
 			String contents[] = temp.split("::");
 			temp = "";
@@ -79,7 +79,7 @@ public class Conversion {
 			temp += contents[j];
 			}
 			
-			list.get(i).setContent(temp);
+			list.get(i).setKeywords(temp);
 			
 			Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(list.get(i).getDate());
 			dateCompare = t.calculateTime(date);
@@ -91,7 +91,7 @@ public class Conversion {
 				if(contents[j].startsWith("<img ")) {
 					thum = contents[j];
 					
-					if(list.get(i).getCommunityID().equals("c1")) {
+					if(list.get(i).getCid().equals("c1")) {
 						list.get(i).setThumbnail(thum);
 					}
 					break;

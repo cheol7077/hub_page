@@ -7,7 +7,7 @@
       SELECT *
       FROM board
       WHERE date >= date_add(now(), interval-#{time} HOUR)
-      AND communityID IN
+      AND cid IN
       <foreach collection="siteList" item="site" open="(" close=")" separator=",">
          #{site}
       </foreach>
@@ -23,7 +23,7 @@
       </if>
       
       <if test="searchOption.equals('contentSearch')">
-         and content like CONCAT('%',#{searchKeyword},'%')
+         and keywords like CONCAT('%',#{searchKeyword},'%')
       </if>
       
       <if test="searchOption.equals('titleContentSearch')">

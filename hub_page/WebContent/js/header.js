@@ -47,4 +47,12 @@ $(function() {
 	$('#login').click(function(){
 		location.href = "login.do?userID=" + $('#loginId').val() + "&password=" + $('#loginPw').val()
 	})
+	
+	$('#myscrap').click(function(){
+		location.href = 'scrapBoard.do'
+	})
+	
+	$('#logout').click(function(){
+		location.href = 'logout.do'
+	})
 })

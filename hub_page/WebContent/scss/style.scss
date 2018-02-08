@@ -1,0 +1,154 @@
+@import "compass/css3";
+
+$lightGrey: #E6E9ED;
+$grey: #656D78;
+$white: #FFF;
+$black: #434A54;
+$easing: .15s ease-in-out;
+
+// FRAME
+#calendar {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 350px; height: 0;
+  margin: auto;
+  background: $lightGrey;
+  display: table;
+  
+  box-shadow: 0 0 0 10px $grey;
+}
+// CALENDAR
+#calendar .ui-datepicker {
+  position: relative;
+  width: 350px;
+  padding: 0; margin: 0;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  display: table-cell;
+  vertical-align: middle;
+  
+  font-family: 'Helvetica', Arial, sans-serif;
+  
+  -webkit-font-smoothing: antialiased;
+}
+// CALENDAR HEADER
+#calendar .ui-datepicker-header {
+  position: relative;
+  height: 50px;
+  padding: 0; margin: 0;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+}
+// HEADER PREV/NEXT
+#calendar .ui-datepicker-prev,
+#calendar .ui-datepicker-next {
+  cursor: pointer;
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 50px; height: 50px;
+  margin: auto;
+  border-radius: 0;
+  background: $white;
+  
+  -webkit-transition: background $easing;
+}
+#calendar .ui-datepicker-prev { left: 0; }
+#calendar .ui-datepicker-next { right: 0; }
+// HEADER PREV/NEXT HOVER
+#calendar .ui-datepicker-prev:hover,
+#calendar .ui-datepicker-next:hover {
+  border: 0;
+  background: $grey;
+}
+// HEADER PREV/NEXT ARROWS
+#calendar .ui-datepicker-prev .ui-icon,
+#calendar .ui-datepicker-next .ui-icon {
+  position: absolute;
+  top: 0; left: 4px; right: 0; bottom: 0;
+  width: 8px; height: 8px;
+  margin: auto;
+  border-width: 1px 0 0 1px;
+  border-style: solid;
+  border-color: $black;
+  background: transparent;
+  
+  -webkit-transition: border-color $easing;
+  
+  -webkit-transform: rotate(-45deg);
+}
+#calendar .ui-datepicker-next .ui-icon {
+  left: -4px;
+  border-width: 1px 1px 0 0;
+  
+  -webkit-transform: rotate(45deg);
+}
+#calendar .ui-datepicker-prev:hover .ui-icon,
+#calendar .ui-datepicker-next:hover .ui-icon {
+  border-color: $white;
+}
+// HEADER TITLE
+#calendar .ui-datepicker-title {
+  cursor: default;
+  position: relative;
+  width: 250px; height: 50px;
+  padding: 0; margin: auto;
+  background: $black;
+  
+  color: $white;
+  line-height: 50px;
+  text-transform: uppercase;
+}
+// WEEKDAYS
+#calendar .ui-datepicker-calendar { margin: 0; }
+#calendar .ui-datepicker-calendar thead th {
+  cursor: default;
+  height: 35px;
+  padding: 0;
+  background: $grey;
+  
+  color: $white;
+  line-height: 35px;
+  text-transform: uppercase;
+}
+// WEEKENDS
+#calendar .ui-datepicker-calendar thead th.ui-datepicker-week-end { background: $black; color: $white; }
+// DAYS
+#calendar .ui-datepicker-calendar tbody td { padding: 0; margin: 0; }
+#calendar .ui-datepicker-calendar tbody td.ui-datepicker-week-end { background: $white; }
+#calendar .ui-datepicker-calendar tbody td a.ui-state-default {
+  width: 50px; height: 50px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  
+  -webkit-transition: background $easing,
+                      color $easing;
+  
+  color: $black;
+  text-align: center;
+  line-height: 50px;
+}
+// DAY HOVER
+#calendar .ui-datepicker-calendar tbody td a.ui-state-default:hover,
+#calendar .ui-datepicker-calendar tbody td a.ui-state-active {
+  background: $grey;
+  
+  color: $white;
+}
+// CURRENT DAY
+#calendar .ui-datepicker-calendar tbody td a.ui-state-highlight {
+  background: $black;
+  
+  color: $white;
+}
+// NO DAYS
+#calendar .ui-datepicker-calendar tbody td.ui-datepicker-unselectable {
+  background: $grey;
+  opacity: .3;
+}
+#calendar .ui-datepicker-calendar tbody td.ui-datepicker-week-end.ui-datepicker-unselectable {
+  background: $black;
+  opacity: .6;
+}
