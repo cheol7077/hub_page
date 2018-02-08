@@ -31,13 +31,13 @@ $(function() {
 			data : {
 				userID : document.getElementById('userID').value
 			},
-			success : function(data) {
+			success : function(data) {		
 				if(data == 'FAIL') {
-					check_flag = 1
+					check_flag = 0
 					$('#checkmeg').html(IMPOSSIBLE)
 				}
 				else {
-					check_flag = 0
+					check_flag = 1
 					$('#checkmeg').html(POSSIBLE)
 				}
 			}

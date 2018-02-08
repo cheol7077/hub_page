@@ -14,11 +14,11 @@
 <link rel='stylesheet prefetch'
 	href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <title>main.jsp</title>
 <script>
 	$(function() {
-
 		$("#nav-icon1").click(function() {
 			$(this).toggleClass('open');
 			$("#panel").slideToggle("slow");
@@ -29,8 +29,20 @@
 			$("#panelthree").slideToggle("slow");
 			$("#panelfour").slideToggle("slow");
 		});
-
 	})
+	$(window).on("load", function() {
+		$("#adultbox").change(function() {
+			if ($("#adultbox").is(":checked")) {
+				parameters.adultView = "N"
+				parameters.index = 0
+				boardView()
+			} else {
+				parameters.adultView = "Y"
+				parameters.index = 0
+				boardView()
+			}
+		});
+	});
 </script>
 </head>
 <body>
@@ -112,6 +124,7 @@
 						type="hidden" value="c3" name="siteList[]"> <input
 						type="hidden" value="c4" name="siteList[]"> <input
 						type="button" value="글검색" name="search" id="search"> <br />
+					<br /> 건전한 게시물만 보기 <input type="checkbox" value="N" id="adultbox" />
 					<b id="searchResult"></b>
 				</form>
 			</div>

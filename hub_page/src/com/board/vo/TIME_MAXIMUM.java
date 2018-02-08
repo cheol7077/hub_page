@@ -1,7 +1,7 @@
 package com.board.vo;
 
 import java.util.Date;
-
+//~시간 전 체크해주는 모듈
 public class TIME_MAXIMUM {
 	public static final int SEC = 60;
 	public static final int MIN = 60;

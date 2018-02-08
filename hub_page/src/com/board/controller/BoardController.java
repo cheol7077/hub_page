@@ -1,6 +1,7 @@
 package com.board.controller;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,30 +13,41 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.board.service.BoardService;
 import com.board.vo.BoardVO;
 import com.board.vo.Conversion;
+import com.board.vo.OverlabConversion;
 
 @Controller
 public class BoardController {
 	final int INIT = 0;
 	Conversion c = new Conversion();
-
+	OverlabConversion o = new OverlabConversion();
 	@Autowired
 	BoardService boardService;
 
 	@RequestMapping("/main.do")
 	public void main() {
 	}
-	
+
 	@RequestMapping("/starter.do")
 	public void starter() {
 	}
- 
+
 	@RequestMapping("/board.do")
 	public void board(@RequestParam("index") int index, @RequestParam("order") String order,
 			@RequestParam("time") int time, @RequestParam("searchKeyword") String searchKeyword,
 			@RequestParam("searchOption") String searchOption,
-			@RequestParam(value = "siteList[]") List<String> siteList, Model model) throws ParseException {
-		List<BoardVO> boardList = boardService.getBoardList(index, order, time, searchKeyword, searchOption, siteList);
+			@RequestParam(value = "siteList[]") List<String> siteList, @RequestParam("adultView") String adultView,
+			Model model) throws ParseException {
+		List<BoardVO> boardList = boardService.getBoardList(index, order, time, searchKeyword, searchOption, siteList,
+				adultView);
+		boardList = c.conversion(boardList);
 		model.addAttribute("boardList", boardList);
+	}
+
+	@RequestMapping("/overlab.do")
+	public void overlabControl(@RequestParam("overlab") String overlab, Model model) throws Exception {
+		ArrayList<String> overlabList = o.getOverlab(overlab);
+
+		model.addAttribute("overlabList", overlabList);
 	}
 
 }

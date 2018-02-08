@@ -12,6 +12,7 @@
          #{site}
       </foreach>
       <include refid="search"/>
+      and adult in('N','${adultView}')
       ORDER BY ${order} desc
       LIMIT #{index}, 10
    </select>
@@ -32,4 +33,5 @@
       </if>
    </if>
       </sql>
+    
 </mapper>
